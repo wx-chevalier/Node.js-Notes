@@ -1,4 +1,4 @@
-[![](https://i.postimg.cc/WzXsh0MX/image.png)](https://github.com/wx-chevalier/Backend-Series)
+![高可用题图](https://s2.ax1x.com/2019/11/18/M60zp4.png)
 
 # 测试与高可用保障
 
