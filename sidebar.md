@@ -15,11 +15,13 @@
       - [过滤器与异常处理](/Nest/中间件/过滤器与异常处理.md)
     - 工程实践
       - [安全与日志](/Nest/工程实践/安全与日志.md)
+      - [性能优化](/Nest/工程实践/性能优化.md)
       - [测试与发布](/Nest/工程实践/测试与发布.md)
     - [微服务](/Nest/微服务/README.md)
       
     - 数据访问
-      - [关系型数据库](/Nest/数据访问/关系型数据库.md)
+      - [Redis](/Nest/数据访问/Redis.md)
+      - [TypeORM](/Nest/数据访问/TypeORM.md)
   - [全栈开发](/全栈开发/README.md)
     - [BFF](/全栈开发/BFF/README.md)
       - [BFF 与 BIF](/全栈开发/BFF/BFF%20与%20BIF.md)
