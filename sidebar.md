@@ -19,7 +19,7 @@
       - [测试与发布](/Nest/工程实践/测试与发布.md)
     - [微服务](/Nest/微服务/README.md)
       
-    - 数据访问
+    - [数据访问](/Nest/数据访问/README.md)
       - [Redis](/Nest/数据访问/Redis.md)
       - [TypeORM](/Nest/数据访问/TypeORM.md)
   - [全栈开发](/全栈开发/README.md)
