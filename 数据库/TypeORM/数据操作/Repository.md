@@ -14,9 +14,9 @@ await userRepository.save(user);
 
 有三种类型的存储库：
 
-- `Repository` - 任何实体的常规存储库。
-- `TreeRepository` - 用于树实体的`Repository`的扩展存储库（比如标有`@ Tree`装饰器的实体）。有特殊的方法来处理树结构。
-- `MongoRepository` - 具有特殊功能的存储库，仅用于 MongoDB。
+- `Repository`：任何实体的常规存储库。
+- `TreeRepository`：用于树实体的 `Repository` 的扩展存储库（比如标有`@ Tree`装饰器的实体）。有特殊的方法来处理树结构。
+- `MongoRepository`：具有特殊功能的存储库，仅用于 MongoDB。
 
 # Find
 
@@ -94,7 +94,7 @@ userRepository.find({
 });
 ```
 
-返回多个实体的`find`方法（`find`，`findAndCount`，`findByIds`），同时也接受以下选项：
+返回多个实体的 `find` 方法（`find`，`findAndCount`，`findByIds`），同时也接受以下选项：
 
 - `skip` - 偏移（分页）
 
@@ -132,7 +132,7 @@ userRepository.find({
 });
 ```
 
-- `lock` - 启用锁查询。只能在`findOne`方法中使用。`lock`是一个对象，可以定义为：
+- `lock` - 启用锁查询。只能在 `findOne` 方法中使用。`lock` 是一个对象，可以定义为：
 
 ```ts
 { mode: "optimistic", version: number|Date }
