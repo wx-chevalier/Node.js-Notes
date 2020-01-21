@@ -79,7 +79,7 @@ export class User {
 }
 ```
 
-当您使用 save 保存实体时，它总是先尝试使用给定的实体 ID（或 ids）在数据库中查找实体。如果找到 id / ids，则将更新数据库中的这一行。如果没有包含 id / ids 的行，则会插入一个新行。要通过 id 查找实体，可以使用 manager.findOne 或 repository.findOne。例：
+当您使用 save 保存实体时，它总是先尝试使用给定的实体 ID（或 ids）在数据库中查找实体。如果找到 id/ids，则将更新数据库中的这一行。如果没有包含 id/ids 的行，则会插入一个新行。要通过 id 查找实体，可以使用 `manager.findOne` 或 repository.findOne。例：
 
 ```ts
 // 使用单个主键查找一个id
