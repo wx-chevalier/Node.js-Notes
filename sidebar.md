@@ -59,9 +59,8 @@
     - [Sequelize](/数据库/Sequelize/README.md)
       
     - [TypeORM](/数据库/TypeORM/README.md)
-      - 实体
+      - [实体](/数据库/TypeORM/实体/README.md)
         - [关系](/数据库/TypeORM/实体/关系.md)
-        - [实体](/数据库/TypeORM/实体/实体.md)
         - [监听器和订阅者](/数据库/TypeORM/实体/监听器和订阅者.md)
         - [索引](/数据库/TypeORM/实体/索引.md)
       - 数据操作
