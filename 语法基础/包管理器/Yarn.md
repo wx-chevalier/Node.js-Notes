@@ -10,7 +10,7 @@ Yarn 是一个新的快速安全可信赖的可以替代 NPM 的依赖管理工�
 - **Consistency:** Yarn 允许使用某个 lockfile 来保证团队中的所有人使用相同版本的 npm 依赖包，这一点会大大减少因为某个人系统本身问题而导致的 Bug。
 - **Versatile Archives:** Yarn 还允许用户将 npm 包以*tar.gz*形式打包上传到版本控制系统中，这一点能够利用 NPM 包本身已经对不同版本的 Node 或者操作系统做了容错这一特性。
 - **Offline:** Yarn 允许离线安装某些依赖，这点对于 CI 系统特别适用。CI 系统就不需要保证有稳定的网络连接，特别是在有墙的地方。
-- **Speed:** Yarn 采用了新的算法来保证速度， [比 NPM 快到 2~7 倍](https://yarnpkg.com/en/compare)， 同时也允许使用离线包的方式本地安装依赖。
+- **Speed:** Yarn 采用了新的算法来保证速度，[比 NPM 快到 2~7 倍](https://yarnpkg.com/en/compare)，同时也允许使用离线包的方式本地安装依赖。
 
 ## Reference
 
