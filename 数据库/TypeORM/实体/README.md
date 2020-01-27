@@ -45,7 +45,7 @@ const connection: Connection = await createConnection({
   password: "test",
   database: "test",
   entities: [User]
-  // 指定包含所有实体的整个目录， 该目录下所有实体都将被加载
+  // 指定包含所有实体的整个目录，该目录下所有实体都将被加载
   // entities: ["entity/*.js"]
 });
 ```

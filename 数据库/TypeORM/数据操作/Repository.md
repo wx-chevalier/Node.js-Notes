@@ -427,7 +427,7 @@ await userRepository.save(user);
 const timber = await userRepository.findByName("Timber", "Saw");
 ```
 
-如你所见，你也可以使用`getCustomRepository` 获取 repository， 并且可以访问在其中创建的任何方法以及标准实体 repository 中的任何方法。
+如你所见，你也可以使用`getCustomRepository` 获取 repository，并且可以访问在其中创建的任何方法以及标准实体 repository 中的任何方法。
 
 ## 扩展了标准 AbstractRepository 的自定义存储库
 
@@ -467,7 +467,7 @@ const timber = await userRepository.findByName("Timber", "Saw");
 
 ## 没有扩展的自定义存储库
 
-创建存储库的第三种方法是不扩展任何东西， 但是需要定义一个总是接受实体管理器(entity manager)实例的构造函数：
+创建存储库的第三种方法是不扩展任何东西，但是需要定义一个总是接受实体管理器(entity manager)实例的构造函数：
 
 ```typescript
 import { EntityRepository, Repository, EntityManager } from "typeorm";
