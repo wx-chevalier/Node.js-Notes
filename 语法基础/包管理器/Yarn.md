@@ -24,7 +24,8 @@ Yarn 是一个新的快速安全可信赖的可以替代 NPM 的依赖管理工�
 
 # Quick Start
 
-直接使用`npm i yarn -g`全局安装即可，这是笔者本机的运行结果图，速度与稳定性确实都快了不少：
+直接使用 `npm i yarn -g` 全局安装即可，这是笔者本机的运行结果图，速度与稳定性确实都快了不少：
+
 ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/10/2/9A18FA64-6871-4A55-B77D-7DAE78371DE5.png)
 
 ## Cheat
