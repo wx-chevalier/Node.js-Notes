@@ -1,4 +1,4 @@
-[![](https://i.postimg.cc/WzXsh0MX/image.png)](https://github.com/wx-chevalier/Backend-Series)
+
 
 # Koa 介绍与基础使用
 
