@@ -9,7 +9,7 @@ This is where HTTP/2 Server Push capabilities come into the picture as the serve
 ![](https://blog-assets.risingstack.com/2017/08/http2-in-nodejs.png)
 
 ```js
-const http2 = require('http2');
+const http2 = require("http2");
 
 const server = http2.createSecureServer(
   { cert, key },
@@ -30,10 +30,10 @@ function push(stream, filePath) {
 function onRequest(req, res) {
   // Push files with index.html
 
-  if (reqPath === '/index.html') {
-    push(res.stream, 'bundle1.js');
+  if (reqPath === "/index.html") {
+    push(res.stream, "bundle1.js");
 
-    push(res.stream, 'bundle2.js');
+    push(res.stream, "bundle2.js");
   } // Serve file
 
   res.stream.respondWithFD(file.fileDescriptor, file.headers);

@@ -1,5 +1,3 @@
-
-
 # Backend for Frontend，性能与效率的平衡
 
 BIF, Backend in Frontend 的概念
