@@ -15,20 +15,20 @@
 ## 本地认证
 
 ```js
-const LocalStrategy = require('passport-local').Strategy;
+const LocalStrategy = require("passport-local").Strategy;
 
 passport.use(
-  'local',
+  "local",
 
   new LocalStrategy(
     {
-      usernameField: 'email',
+      usernameField: "email",
 
-      passwordField: 'password'
+      passwordField: "password"
     },
 
     (uEmail, uPassword, done) => {
-      db.User.findOne({ email: uEmail, provider: 'local' })
+      db.User.findOne({ email: uEmail, provider: "local" })
 
         .then(user => {
           if (user) {
@@ -46,7 +46,7 @@ passport.use(
                 return done(err, null);
               });
           } else {
-            return done(new Error('INVALID_LOGIN'), null);
+            return done(new Error("INVALID_LOGIN"), null);
           }
         })
 
@@ -73,7 +73,7 @@ userSchema.methods.validatePassword = function(rawPwd) {
   return bcrypt.compare(rawPwd, this.password).then(isValid => {
     return isValid
       ? true
-      : Promise.reject(new Error(lang.t('auth:errors:invalidlogin')));
+      : Promise.reject(new Error(lang.t("auth:errors:invalidlogin")));
   });
 };
 ```
@@ -172,12 +172,12 @@ const ExpressBruteMongooseStore = require('express-brute-mongoose')
 
 ```js
 app.post(
-  '/login',
+  "/login",
 
-  passport.authenticate('local', {
-    successRedirect: '/',
+  passport.authenticate("local", {
+    successRedirect: "/",
 
-    failureRedirect: '/login',
+    failureRedirect: "/login",
 
     failureFlash: true
   }),
@@ -185,7 +185,7 @@ app.post(
   function(req, res) {
     // 验证成功则调用此回调函数
 
-    res.redirect('/users/' + req.user.username);
+    res.redirect("/users/" + req.user.username);
   }
 );
 ```
@@ -319,19 +319,19 @@ const router = express.Router();
 ```js
 // body parser
 
-const bodyParser = require('koa-bodyparser');
+const bodyParser = require("koa-bodyparser");
 
 app.use(bodyParser());
 
 // Sessions
 
-const session = require('koa-session');
+const session = require("koa-session");
 
-app.keys = ['secret'];
+app.keys = ["secret"];
 
 app.use(session({}, app));
 
-const passport = require('koa-passport');
+const passport = require("koa-passport");
 
 app.use(passport.initialize());
 
@@ -362,7 +362,7 @@ passport.deserializeUser(function(id, done) {
       if (user) {
         done(null, user);
       } else {
-        done(new Error(lang.t('auth:errors:usernotfound')), null);
+        done(new Error(lang.t("auth:errors:usernotfound")), null);
       }
 
       return true;
@@ -381,7 +381,7 @@ passport.deserializeUser(function(id, done) {
 ```js
 //这里getUser方法需要自定义
 
-app.get('/user', isAuthenticated, getUser);
+app.get("/user", isAuthenticated, getUser);
 
 // 将req.isAuthenticated()封装成中间件
 
@@ -390,7 +390,7 @@ module.exports = (req, res, next) => {
 
   if (!req.isAuthenticated()) {
     if (req.app.locals.appconfig.public !== true) {
-      return res.redirect('/login');
+      return res.redirect("/login");
     } else {
       req.user = rights.guest;
 
@@ -405,7 +405,7 @@ module.exports = (req, res, next) => {
   res.locals.rights = rights.check(req);
 
   if (!res.locals.rights.read) {
-    return res.render('error-forbidden');
+    return res.render("error-forbidden");
   }
 
   // Expose user data
@@ -417,10 +417,10 @@ module.exports = (req, res, next) => {
 ```
 
 ```js
-app.get('/logout', function(req, res) {
+app.get("/logout", function(req, res) {
   req.logout();
 
-  res.redirect('/');
+  res.redirect("/");
 });
 ```
 
@@ -489,10 +489,10 @@ done(err, user);
 refreshToken 是重新获取 access token 的方法，因为 access token 是有使用期限的，到期了必须让用户重新授权才行，现在有了 refresh token，你可以让应用定期的用它去更新 access token，这样第三方服务就可以一直绑定了。不过这个方法并不是每个服务商都提供，注意看服务商的文档。
 
 ```js
-const GitHubStrategy = require('passport-github2').Strategy;
+const GitHubStrategy = require("passport-github2").Strategy;
 
 passport.use(
-  'github',
+  "github",
 
   new GitHubStrategy(
     {
@@ -500,9 +500,9 @@ passport.use(
 
       clientSecret: appconfig.auth.github.clientSecret,
 
-      callbackURL: appconfig.host + '/login/github/callback',
+      callbackURL: appconfig.host + "/login/github/callback",
 
-      scope: ['user:email']
+      scope: ["user:email"]
     },
 
     (accessToken, refreshToken, profile, cb) => {
@@ -522,98 +522,98 @@ passport.use(
 
 ```js
 router.get(
-  '/login/ms',
+  "/login/ms",
 
-  passport.authenticate('windowslive', {
-    scope: ['wl.signin', 'wl.basic', 'wl.emails']
+  passport.authenticate("windowslive", {
+    scope: ["wl.signin", "wl.basic", "wl.emails"]
   })
 );
 
 router.get(
-  '/login/google',
+  "/login/google",
 
-  passport.authenticate('google', { scope: ['profile', 'email'] })
+  passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
 router.get(
-  '/login/facebook',
+  "/login/facebook",
 
-  passport.authenticate('facebook', { scope: ['public_profile', 'email'] })
+  passport.authenticate("facebook", { scope: ["public_profile", "email"] })
 );
 
 router.get(
-  '/login/github',
+  "/login/github",
 
-  passport.authenticate('github', { scope: ['user:email'] })
+  passport.authenticate("github", { scope: ["user:email"] })
 );
 
 router.get(
-  '/login/slack',
+  "/login/slack",
 
-  passport.authenticate('slack', {
-    scope: ['identity.basic', 'identity.email']
+  passport.authenticate("slack", {
+    scope: ["identity.basic", "identity.email"]
   })
 );
 
-router.get('/login/azure', passport.authenticate('azure_ad_oauth2'));
+router.get("/login/azure", passport.authenticate("azure_ad_oauth2"));
 
 router.get(
-  '/login/ms/callback',
+  "/login/ms/callback",
 
-  passport.authenticate('windowslive', {
-    failureRedirect: '/login',
+  passport.authenticate("windowslive", {
+    failureRedirect: "/login",
 
-    successRedirect: '/'
-  })
-);
-
-router.get(
-  '/login/google/callback',
-
-  passport.authenticate('google', {
-    failureRedirect: '/login',
-
-    successRedirect: '/'
+    successRedirect: "/"
   })
 );
 
 router.get(
-  '/login/facebook/callback',
+  "/login/google/callback",
 
-  passport.authenticate('facebook', {
-    failureRedirect: '/login',
+  passport.authenticate("google", {
+    failureRedirect: "/login",
 
-    successRedirect: '/'
+    successRedirect: "/"
   })
 );
 
 router.get(
-  '/login/github/callback',
+  "/login/facebook/callback",
 
-  passport.authenticate('github', {
-    failureRedirect: '/login',
+  passport.authenticate("facebook", {
+    failureRedirect: "/login",
 
-    successRedirect: '/'
+    successRedirect: "/"
   })
 );
 
 router.get(
-  '/login/slack/callback',
+  "/login/github/callback",
 
-  passport.authenticate('slack', {
-    failureRedirect: '/login',
+  passport.authenticate("github", {
+    failureRedirect: "/login",
 
-    successRedirect: '/'
+    successRedirect: "/"
   })
 );
 
 router.get(
-  '/login/azure/callback',
+  "/login/slack/callback",
 
-  passport.authenticate('azure_ad_oauth2', {
-    failureRedirect: '/login',
+  passport.authenticate("slack", {
+    failureRedirect: "/login",
 
-    successRedirect: '/'
+    successRedirect: "/"
+  })
+);
+
+router.get(
+  "/login/azure/callback",
+
+  passport.authenticate("azure_ad_oauth2", {
+    failureRedirect: "/login",
+
+    successRedirect: "/"
   })
 );
 ```

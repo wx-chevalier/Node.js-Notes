@@ -1,5 +1,3 @@
-
-
 # TypeGraphQL
 
 # Todos

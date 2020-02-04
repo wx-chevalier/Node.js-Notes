@@ -1,5 +1,3 @@
-
-
 # GraphQL
 
 > GraphQL is Facebook’s new query language for fetching application data in a uniform way.

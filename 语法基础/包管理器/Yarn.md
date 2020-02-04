@@ -1,4 +1,3 @@
-
 # [Yarn](https://github.com/yarnpkg/yarn)
 
 Yarn 是一个新的快速安全可信赖的可以替代 NPM 的依赖管理工具，笔者在自己过去无论是本机还是 CI 中经常会碰到 NPM 安装依赖失败的情形，防不胜防啊。Yarn 正式发布没几天已经迅速达到了数万赞，就可以知道大家苦 NPM 久已。笔者最早是在 [Facebook 的这篇吐槽文](https://code.facebook.com/posts/1840075619545360/yarn-a-new-package-manager-for-javascript/)中了解到 Yarn。Facebook 使用 NPM 与 npm.js 存放管理大量的依赖项目，不过随着依赖项数目与复杂度的增加，NPM 本身在一致性、安全性以及性能方面的弊端逐渐暴露。因此忍无可忍的 Facebook 重构了 Yarn 这个新型的可替换 NPM 客户端的依赖管理工具。Yarn 仍然基于 NPM Registry 作为主要的仓库，不过其提供了更快的安装速度与不同环境下的一致性保证。

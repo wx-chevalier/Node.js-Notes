@@ -1,5 +1,3 @@
-
-
 # GraphQL SDL
 
 SDL（Schema Definition Language） 是标准的 GraphQL Schema 的表示方式，在编程中我们往往会将其转化为 GraphQL.js 的 GraphQLSchema 对象，或者其他语言中的等效描述对象。
@@ -15,7 +13,7 @@ Schema 中定义了我们可以查询或者操作的数据属性与类型以及�
 SDL 是标准的 GraphQL Schema 的表示方式，在编程中我们往往会将其转化为 GraphQL.js 的 GraphQLSchema 对象，或者其他语言中的等效描述对象。
 
 ```js
-const { graphql, buildSchema } = require('graphql');
+const { graphql, buildSchema } = require("graphql");
 
 // 使用 GraphQL schema language 定义 Schema
 const schema = buildSchema(`
@@ -27,12 +25,12 @@ const schema = buildSchema(`
 // 为每个 API 端点提供解析函数
 const root = {
   hello: () => {
-    return 'Hello world!';
+    return "Hello world!";
   }
 };
 
 // 执行查询请求，并且获取结果
-graphql(schema, '{ hello }', root).then(response => {
+graphql(schema, "{ hello }", root).then(response => {
   console.log(response);
 });
 ```
@@ -45,16 +43,16 @@ const {
   GraphQLSchema,
   GraphQLNonNull,
   GraphQLInt
-} = require('graphql');
+} = require("graphql");
 
 const queryType = new GraphQLObjectType({
-  name: 'Query',
+  name: "Query",
   fields: {
     posts: {
       type: postType
     },
     author: {
-      name: 'author',
+      name: "author",
       type: authorType,
       arguments: { id: { type: new GraphQLNonNull(GraphQLInt) } }
     }
@@ -73,7 +71,7 @@ const schema = new GraphQLSchema({
 Apollo GraphQL 为我们提供了全栈式的 GraphQL 开发工具与良好的体验，也可以看做 GraphQL 标准的一种实现方式。[graphql-tag](https://github.com/apollographql/graphql-tag) 提供了 GraphQL 的查询辅助工具，能够将某个查询转化为 GraphQL 的 AST 表示：
 
 ```js
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 const query = gql`
   {
@@ -99,7 +97,7 @@ console.log(query);
 [graphql-tools](https://github.com/apollographql/graphql-tools) 则提供了完整的 Schema 生成与合并工具，支持 Resolver, Interface, Union, Scalar:
 
 ```js
-import { buildSchema, printSchema, makeExecutableSchema } from 'graphql-tools';
+import { buildSchema, printSchema, makeExecutableSchema } from "graphql-tools";
 
 const sdlSchema = `...`;
 
@@ -111,7 +109,7 @@ const graphqlSchemaObj = makeExecutableSchema({
   typeDefs: sdlSchema,
   resolvers: {
     Query: {
-      author: () => ({ firstName: 'Ada', lastName: 'Lovelace' })
+      author: () => ({ firstName: "Ada", lastName: "Lovelace" })
     }
   }
 });
@@ -178,9 +176,9 @@ GraphQL 的 API 是被要求自我注释的，每个 GraphQL API 应可以返回
 我们可以利用 graphql 库提供的 introspectionQuery 查询来进行获取：
 
 ```js
-const { introspectionQuery } = require('graphql');
+const { introspectionQuery } = require("graphql");
 // ...
-fetch('https://1jzxrj179.lp.gql.zone/graphql', {
+fetch("https://1jzxrj179.lp.gql.zone/graphql", {
   // ...
   body: JSON.stringify({ query: introspectionQuery })
 });
@@ -190,10 +188,10 @@ fetch('https://1jzxrj179.lp.gql.zone/graphql', {
 同样的，我们可以将内省的查询结果转化为 GraphQL Schema 对象：
 
 ```js
-const { buildClientSchema } = require('graphql');
-const fs = require('fs');
+const { buildClientSchema } = require("graphql");
+const fs = require("fs");
 
-const introspectionSchemaResult = JSON.parse(fs.readFileSync('result.json'));
+const introspectionSchemaResult = JSON.parse(fs.readFileSync("result.json"));
 const graphqlSchemaObj = buildClientSchema(introspectionSchemaResult);
 ```
 
@@ -219,8 +217,8 @@ enum Category {
 ## 自定义标量类型
 
 ```js
-import { makeExecutableSchema } from 'graphql-tools';
-import GraphQLJSON from 'graphql-type-json';
+import { makeExecutableSchema } from "graphql-tools";
+import GraphQLJSON from "graphql-type-json";
 
 const schemaString = `
 scalar JSON

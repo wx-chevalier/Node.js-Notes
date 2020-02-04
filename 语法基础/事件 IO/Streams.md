@@ -1,5 +1,3 @@
-
-
 # Node.js Streams
 
 Stream 是 Node.js 中的基础概念，类似于 EventEmitter，专注于 IO 管道中事件驱动的数据处理方式；类比于数组或者映射，Stream 也是数据的集合，只不过其代表了不一定正在内存中的数据。。Node.js 的 Stream 分为以下类型：
@@ -16,11 +14,11 @@ Stream 本身提供了一套接口规范，很多 Node.js 中的内建模块都�
 # Readable Stream
 
 ```js
-const stream = require('stream');
-const fs = require('fs');
+const stream = require("stream");
+const fs = require("fs");
 
 const readableStream = fs.createReadStream(process.argv[2], {
-  encoding: 'utf8'
+  encoding: "utf8"
 });
 
 // 手动设置流数据编码
@@ -28,13 +26,13 @@ const readableStream = fs.createReadStream(process.argv[2], {
 
 let wordCount = 0;
 
-readableStream.on('data', function(data) {
+readableStream.on("data", function(data) {
   wordCount += data.split(/\s{1,}/).length;
 });
 
-readableStream.on('end', function() {
+readableStream.on("end", function() {
   // Don't count the end of the file.
-  console.log('%d %s', --wordCount, process.argv[2]);
+  console.log("%d %s", --wordCount, process.argv[2]);
 });
 ```
 
@@ -54,14 +52,14 @@ while (state.flowing && stream.read() !== null) {}
 我们还可以监听 `readable` 事件，然后手动地进行数据读取：
 
 ```js
-let data = '';
+let data = "";
 let chunk;
-readableStream.on('readable', function() {
+readableStream.on("readable", function() {
   while ((chunk = readableStream.read()) != null) {
     data += chunk;
   }
 });
-readableStream.on('end', function() {
+readableStream.on("end", function() {
   console.log(data);
 });
 ```
@@ -81,7 +79,7 @@ sendToWormhole(readStream, true);
 # Writable Stream
 
 ```js
-readableStream.on('data', function(chunk) {
+readableStream.on("data", function(chunk) {
   writableStream.write(chunk);
 });
 
@@ -91,7 +89,7 @@ writableStream.end();
 当 `end()` 被调用时，所有数据会被写入，然后流会触发一个 `finish` 事件。注意在调用 `end()` 之后，你就不能再往可写流中写入数据了。
 
 ```js
-const { Writable } = require('stream');
+const { Writable } = require("stream");
 
 const outStream = new Writable({
   write(chunk, encoding, callback) {
@@ -112,10 +110,10 @@ Writable Stream 中同样包含一些与 Readable Stream 相关的重要事件�
 # Pipe | 管道
 
 ```js
-const fs = require('fs');
+const fs = require("fs");
 
-const inputFile = fs.createReadStream('REALLY_BIG_FILE.x');
-const outputFile = fs.createWriteStream('REALLY_BIG_FILE_DEST.x');
+const inputFile = fs.createReadStream("REALLY_BIG_FILE.x");
+const outputFile = fs.createWriteStream("REALLY_BIG_FILE_DEST.x");
 
 // 当建立管道时，才发生了流的流动
 inputFile.pipe(outputFile);
@@ -124,11 +122,11 @@ inputFile.pipe(outputFile);
 多个管道顺序调用，即是构建了链接(Chaining):
 
 ```js
-const fs = require('fs');
-const zlib = require('zlib');
-fs.createReadStream('input.txt.gz')
+const fs = require("fs");
+const zlib = require("zlib");
+fs.createReadStream("input.txt.gz")
   .pipe(zlib.createGunzip())
-  .pipe(fs.createWriteStream('output.txt'));
+  .pipe(fs.createWriteStream("output.txt"));
 ```
 
 管道也常用于 Web 服务器中的文件处理，以 Egg.js 中的应用为例，我们可以从 Context 中获取到文件流并将其传入到可写文件流中：
@@ -218,7 +216,7 @@ Duplex Stream 可以看做读写流的聚合体，其包含了相互独立、拥
 我们可以使用 Duplex 模拟简单的套接字操作：
 
 ```js
-const { Duplex } = require('stream');
+const { Duplex } = require("stream");
 
 class Duplexer extends Duplex {
   constructor(props) {
@@ -228,7 +226,7 @@ class Duplexer extends Duplex {
 
   _read(size) {
     const chunk = this.data.shift();
-    if (chunk == 'stop') {
+    if (chunk == "stop") {
       this.push(null);
     } else {
       if (chunk) {
@@ -244,34 +242,34 @@ class Duplexer extends Duplex {
 }
 
 const d = new Duplexer({ allowHalfOpen: true });
-d.on('data', function(chunk) {
-  console.log('read: ', chunk.toString());
+d.on("data", function(chunk) {
+  console.log("read: ", chunk.toString());
 });
-d.on('readable', function() {
-  console.log('readable');
+d.on("readable", function() {
+  console.log("readable");
 });
-d.on('end', function() {
-  console.log('Message Complete');
+d.on("end", function() {
+  console.log("Message Complete");
 });
-d.write('....');
+d.write("....");
 ```
 
 在开发中我们也经常需要直接将某个可读流输出到可写流中，此时也可以在其中引入 PassThrough，以方便进行额外地监听：
 
 ```js
-const { PassThrough } = require('stream');
-const fs = require('fs');
+const { PassThrough } = require("stream");
+const fs = require("fs");
 
 const duplexStream = new PassThrough();
 
 // can be piped from reaable stream
-fs.createReadStream('tmp.md').pipe(duplexStream);
+fs.createReadStream("tmp.md").pipe(duplexStream);
 
 // can pipe to writable stream
 duplexStream.pipe(process.stdout);
 
 // 监听数据，这里直接输出的是 Buffer<Buffer 60 60  ... >
-duplexStream.on('data', console.log);
+duplexStream.on("data", console.log);
 ```
 
 # Transform Stream
@@ -288,8 +286,8 @@ Transform Stream 则是实现了 `_transform` 方法的 Duplex Stream，其在�
 这里我们实现简单的 Base64 编码器:
 
 ```js
-const util = require('util');
-const Transform = require('stream').Transform;
+const util = require("util");
+const Transform = require("stream").Transform;
 
 function Base64Encoder(options) {
   Transform.call(this, options);
@@ -298,7 +296,7 @@ function Base64Encoder(options) {
 util.inherits(Base64Encoder, Transform);
 
 Base64Encoder.prototype._transform = function(data, encoding, callback) {
-  callback(null, data.toString('base64'));
+  callback(null, data.toString("base64"));
 };
 
 process.stdin.pipe(new Base64Encoder()).pipe(process.stdout);
