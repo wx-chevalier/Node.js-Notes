@@ -330,7 +330,7 @@ const loadedPosts = await connection.getRepository(Post).find({
 });
 ```
 
-将执行以下查询： (Postgres notation):
+将执行以下查询：(Postgres notation):
 
 ```sql
 SELECT * FROM "post" WHERE "title" = ANY(['About #2','About #3'])
