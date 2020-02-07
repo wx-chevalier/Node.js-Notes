@@ -1,6 +1,6 @@
 # GraphQL SDL
 
-SDL（Schema Definition Language） 是标准的 GraphQL Schema 的表示方式，在编程中我们往往会将其转化为 GraphQL.js 的 GraphQLSchema 对象，或者其他语言中的等效描述对象。
+SDL（Schema Definition Language）是标准的 GraphQL Schema 的表示方式，在编程中我们往往会将其转化为 GraphQL.js 的 GraphQLSchema 对象，或者其他语言中的等效描述对象。
 
 ![](https://cdn-images-1.medium.com/max/1600/1*CzVPl58sR5he8UEGpYg2Zw.png)
 
