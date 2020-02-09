@@ -71,7 +71,7 @@ const secondConnection = getConnection("test2-connection");
 
 ## ormconfig.json
 
-大多数情况下，我们希望将连接选项存储在单独的配置文件中，因为此方式使管理变得更方便和容易。 TypeORM 支持多个配置源。你只需要在应用程序的根目录（package.json 附近）中创建一个 `ormconfig.[format]` 文件存放连接配置，并在应用程序中调用 createConnection()，而不传递任何参数配置：
+大多数情况下，我们希望将连接选项存储在单独的配置文件中，因为此方式使管理变得更方便和容易 TypeORM 支持多个配置源。你只需要在应用程序的根目录（package.json 附近）中创建一个 `ormconfig.[format]` 文件存放连接配置，并在应用程序中调用 createConnection()，而不传递任何参数配置：
 
 ```ts
 import { createConnection } from "typeorm";
@@ -118,7 +118,7 @@ const connection = await createConnection();
 ]
 ```
 
-有时你希望覆盖 ormconfig 文件中定义的值，或者可能会在配置中附加一些 TypeScript/JavaScript 逻辑。 在这种情况下，你可以从 ormconfig 加载选项并构建 ConnectionOptions，然后在将它们传递给 createConnection 函数之前，使用这些选项执行任何操作：
+有时你希望覆盖 ormconfig 文件中定义的值，或者可能会在配置中附加一些 TypeScript/JavaScript 逻辑在这种情况下，你可以从 ormconfig 加载选项并构建 ConnectionOptions，然后在将它们传递给 createConnection 函数之前，使用这些选项执行任何操作：
 
 ```ts
 // 从ormconfig文件（或ENV变量）读取连接选项
@@ -167,7 +167,7 @@ const connections = await createConnections([
 ]);
 ```
 
-此方法允许你连接到已拥有的任意数量的数据库，每个数据库都有自己的配置，自己的实体和整体 ORM 范围和设置。对于每个连接，将创建一个新的 Connection 实例。 你必须为创建的每个连接指定唯一的名称。
+此方法允许你连接到已拥有的任意数量的数据库，每个数据库都有自己的配置，自己的实体和整体 ORM 范围和设置。对于每个连接，将创建一个新的 Connection 实例你必须为创建的每个连接指定唯一的名称。
 也可以从 ormconfig 文件加载所有连接选项：
 
 ```typescript

@@ -185,7 +185,7 @@ user.names = ["Alexander", "Alex", "Sasha", "Shurik"];
 
 ## simple-json 列类型
 
-还有一个名为`simple-json`的特殊列类型，它可以存储任何可以通过 JSON.stringify 存储在数据库中的值。 当你的数据库中没有 json 类型而你又想存储和加载对象，该类型就很有用了。 例如:
+还有一个名为`simple-json`的特殊列类型，它可以存储任何可以通过 JSON.stringify 存储在数据库中的值当你的数据库中没有 json 类型而你又想存储和加载对象，该类型就很有用了例如:
 
 ```typescript
 @Entity()
@@ -252,7 +252,7 @@ Name 实体中定义的所有列将合并为 user，employee 和 student：
 
 # 实体继承
 
-你可以使用实体继承模式减少代码中的重复。 最简单和最有效的是具体的表继承。所有这些实体都有共同的列：`id`，`title`，`description`。 为了减少重复并产生更好的抽象，我们可以为它们创建一个名为 `Content` 的基类：
+你可以使用实体继承模式减少代码中的重复最简单和最有效的是具体的表继承。所有这些实体都有共同的列：`id`，`title`，`description`为了减少重复并产生更好的抽象，我们可以为它们创建一个名为 `Content` 的基类：
 
 ```typescript
 export abstract class Content {

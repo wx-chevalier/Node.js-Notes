@@ -4,7 +4,7 @@ Knex.js 教程展示了如何使用 Knex.js 在 JavaScript 中对数据库进行
 
 ## Knex.js
 
-Knex.js 是用于关系数据库（包括 PostgreSQL，MySQL，SQLite3 和 Oracle）的 JavaScript 查询生成器。 它可以与回调和 Promise 一起使用。 它支持事务和连接池。
+Knex.js 是用于关系数据库（包括 PostgreSQL，MySQL，SQLite3 和 Oracle）的 JavaScript 查询生成器它可以与回调和 Promise 一起使用它支持事务和连接池。
 
 在本教程中，我们使用 MySQL。
 
@@ -32,7 +32,7 @@ $ npm i knex mysql2
 
 ```
 
-我们安装 Knex.js 和 MySQL 驱动程序。 有两个驱动程序可用：`mysql`和`mysql2`; 我们选择了后者。
+我们安装 Knex.js 和 MySQL 驱动程序有两个驱动程序可用：`mysql`和`mysql2`; 我们选择了后者。
 
 ## Knex.js 的数据库版本
 
@@ -100,7 +100,7 @@ knex
   });
 ```
 
-使用`raw()`函数，我们执行 SQL 语句。 如果语句运行正常，我们将输出输出。 否则，我们记录错误。 最后，我们使用`destroy()`关闭数据库连接。
+使用`raw()`函数，我们执行 SQL 语句如果语句运行正常，我们将输出输出否则，我们记录错误最后，我们使用`destroy()`关闭数据库连接。
 
 ```js
 $ node version.js
@@ -145,7 +145,7 @@ knex.schema
   });
 ```
 
-使用 Knex.js 模式`createTable()`函数创建一个新表。 我们定义模式以包含三列：id，名称和价格。
+使用 Knex.js 模式`createTable()`函数创建一个新表我们定义模式以包含三列：id，名称和价格。
 
 ## Knex.js 插入数据
 
@@ -227,7 +227,7 @@ knex
   });
 ```
 
-我们使用`select()`功能选择所有行。 这次我们选择了具有`from()`功能的表格。 然后，我们遍历返回的行数组并打印三个字段。
+我们使用`select()`功能选择所有行这次我们选择了具有`from()`功能的表格然后，我们遍历返回的行数组并打印三个字段。
 
 ```js
 $ node select_cars.js

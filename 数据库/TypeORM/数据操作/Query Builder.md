@@ -74,7 +74,7 @@ const user = await getRepository(User)
 
 有 5 种不同的`QueryBuilder`类型可用：
 
-- `SelectQueryBuilder` - 用于构建和执行`SELECT`查询。 例如：
+- `SelectQueryBuilder` - 用于构建和执行`SELECT`查询例如：
 
 ```typescript
 import { getConnection } from "typeorm";
@@ -87,7 +87,7 @@ const user = await getConnection()
   .getOne();
 ```
 
-- `InsertQueryBuilder` - 用于构建和执行 `INSERT` 查询。 例如：
+- `InsertQueryBuilder` - 用于构建和执行 `INSERT` 查询例如：
 
 ```typescript
 import { getConnection } from "typeorm";
@@ -103,7 +103,7 @@ await getConnection()
   .execute();
 ```
 
-- `UpdateQueryBuilder` - 用于构建和执行 `UPDATE` 查询。 例如：
+- `UpdateQueryBuilder` - 用于构建和执行 `UPDATE` 查询例如：
 
 ```typescript
 import { getConnection } from "typeorm";
@@ -116,7 +116,7 @@ await getConnection()
   .execute();
 ```
 
-- `DeleteQueryBuilder` - 用于构建和执行`DELETE`查询。 例如：
+- `DeleteQueryBuilder` - 用于构建和执行`DELETE`查询例如：
 
 ```typescript
 import { getConnection } from "typeorm";
@@ -135,7 +135,7 @@ await getConnection()
 
 ## 插入
 
-你可以使用`QueryBuilder`创建`INSERT`查询。 例如：
+你可以使用`QueryBuilder`创建`INSERT`查询例如：
 
 ```typescript
 import { getConnection } from "typeorm";
@@ -151,7 +151,7 @@ await getConnection()
   .execute();
 ```
 
-就性能而言，这是向数据库中插入实体的最有效方法。 你也可以通过这种方式执行批量插入。在某些情况下需要执行函数 SQL 查询时：
+就性能而言，这是向数据库中插入实体的最有效方法你也可以通过这种方式执行批量插入。在某些情况下需要执行函数 SQL 查询时：
 
 ```typescript
 import { getConnection } from "typeorm";
@@ -171,7 +171,7 @@ await getConnection()
 
 ## 更新
 
-你可以使用 `QueryBuilder` 创建 `UPDATE` 查询。 例如：
+你可以使用 `QueryBuilder` 创建 `UPDATE` 查询例如：
 
 ```typescript
 import { getConnection } from "typeorm";
@@ -194,7 +194,7 @@ typescript import {getConnection} from "typeorm"; await getConnection() .createQ
 
 ## 删除
 
-你可以使用 `QueryBuilder` 创建 `DELETE` 查询。 例如：
+你可以使用 `QueryBuilder` 创建 `DELETE` 查询例如：
 
 ```typescript
 import { getConnection } from "typeorm";

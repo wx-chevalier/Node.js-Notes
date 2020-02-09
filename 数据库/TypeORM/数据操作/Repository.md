@@ -398,7 +398,7 @@ SELECT * FROM "post" WHERE NOT("likes" > 10) AND NOT("title" = 'About #2')
 
 ## 扩展了标准存储库的定制存储库
 
-创建自定义 repository 的第一种方法是扩展`Repository`。 例如：
+创建自定义 repository 的第一种方法是扩展`Repository`例如：
 
 ```typescript
 import { EntityRepository, Repository } from "typeorm";
@@ -463,7 +463,7 @@ await userRepository.createAndSave("Timber", "Saw");
 const timber = await userRepository.findByName("Timber", "Saw");
 ```
 
-这种类型的存储库与前一个存储库之间的区别在于它没有公开`Repository`所具有的所有方法。 `AbstractRepository`没有任何公共方法，它只有受保护的方法，比如`manager`和`repository`，你可以在自己的公共方法中使用它们。 如果你不希望将标准`Repository`所有方法公开给 public，那么扩展`AbstractRepository`将非常有用。
+这种类型的存储库与前一个存储库之间的区别在于它没有公开`Repository`所具有的所有方法`AbstractRepository`没有任何公共方法，它只有受保护的方法，比如`manager`和`repository`，你可以在自己的公共方法中使用它们如果你不希望将标准`Repository`所有方法公开给 public，那么扩展`AbstractRepository`将非常有用。
 
 ## 没有扩展的自定义存储库
 
@@ -501,11 +501,11 @@ await userRepository.createAndSave("Timber", "Saw");
 const timber = await userRepository.findByName("Timber", "Saw");
 ```
 
-这种类型的存储库不会扩展任何东西，你只需要定义一个必须接受`EntityManager`的构造函数。 然后在存储库方法中的任何位置使用它。 此外，这种类型的存储库不绑定到特定实体，因此你可以使用其中的多个实体进行操作。
+这种类型的存储库不会扩展任何东西，你只需要定义一个必须接受`EntityManager`的构造函数然后在存储库方法中的任何位置使用它此外，这种类型的存储库不绑定到特定实体，因此你可以使用其中的多个实体进行操作。
 
 ## 在事务中使用自定义存储库或为什么自定义存储库不能是服务
 
-自定义存储库不能是服务，因为应用程序中没有自定义存储库的单个实例（就像常规存储库或实体管理器一样）。 除了您的应用程序中可能存在多个连接（实体管理器和存储库不同）之外，存储库和管理器在事务中也是不同的。
+自定义存储库不能是服务，因为应用程序中没有自定义存储库的单个实例（就像常规存储库或实体管理器一样）除了您的应用程序中可能存在多个连接（实体管理器和存储库不同）之外，存储库和管理器在事务中也是不同的。
 
 例如：
 
