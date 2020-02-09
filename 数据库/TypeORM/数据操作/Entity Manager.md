@@ -1,6 +1,6 @@
 # EntityManager
 
-使用 EntityManager，你可以管理（insert, update, delete, load 等）任何实体。 EntityManager 就像放一个实体存储库的集合的地方。你可以通过 getManager()或 Connection 访问实体管理器。
+使用 EntityManager，你可以管理（insert, update, delete, load 等）任何实体 EntityManager 就像放一个实体存储库的集合的地方。你可以通过 getManager()或 Connection 访问实体管理器。
 
 ```ts
 import { getManager } from "typeorm";
@@ -26,7 +26,7 @@ const connection = manager.connection;
 const queryRunner = manager.queryRunner;
 ```
 
-- `transaction` - 提供在单个数据库事务中执行多个数据库请求的事务。 更多关于 [事务](https://typeorm.io/#/transactions/).
+- `transaction` - 提供在单个数据库事务中执行多个数据库请求的事务更多关于 [事务](https://typeorm.io/#/transactions/).
 
 ```typescript
 await manager.transaction(async manager => {
@@ -45,7 +45,7 @@ await manager.transaction(async manager => {
 const rawData = await manager.query(`SELECT * FROM USERS`);
 ```
 
-- `createQueryBuilder` - 创建用于构建 SQL 查询的 query builder。 更多关于 [QueryBuilder](https://typeorm.io/#/select-query-builder/).
+- `createQueryBuilder` - 创建用于构建 SQL 查询的 query builder 更多关于 [QueryBuilder](https://typeorm.io/#/select-query-builder/).
 
 ```typescript
 const users = await manager
@@ -64,13 +64,13 @@ if (manager.hasId(user)) {
 }
 ```
 
-- `getId` - 获取给定实体的主列属性值。 如果实体具有复合主键，则返回的值将是具有主列的名称和值的对象。
+- `getId` - 获取给定实体的主列属性值如果实体具有复合主键，则返回的值将是具有主列的名称和值的对象。
 
 ```typescript
 const userId = manager.getId(user); // userId === 1
 ```
 
-- `create` - 创建`User`的新实例。 接受具有用户属性的对象文字，该用户属性将写入新创建的用户对象。（可选）
+- `create` - 创建`User`的新实例接受具有用户属性的对象文字，该用户属性将写入新创建的用户对象。（可选）
 
 ```typescript
 const user = manager.create(User); // same as const user = new User();
@@ -88,7 +88,7 @@ const user = new User();
 manager.merge(User, user, { firstName: "Timber" }, { lastName: "Saw" }); // 和user.firstName = "Timber"; user.lastName = "Saw";一样
 ```
 
-- `preload` - 从给定的普通 javascript 对象创建一个新实体。 如果实体已存在于数据库中，则它将加载它（以及与之相关的所有内容），将所有值替换为给定对象中的新值，并返回新实体。 新的实体实际上是从与新对象代替所有属性的数据库实体加载。
+- `preload` - 从给定的普通 javascript 对象创建一个新实体如果实体已存在于数据库中，则它将加载它（以及与之相关的所有内容），将所有值替换为给定对象中的新值，并返回新实体新的实体实际上是从与新对象代替所有属性的数据库实体加载。
 
 ```typescript
 const partialUser = {
@@ -103,14 +103,14 @@ const user = await manager.preload(User, partialUser);
 // { id: 1, firstName: "Rizzrak", lastName: "Saw", profile: { id: 1, ... } }
 ```
 
-- `save` - 保存给定实体或实体数组。 如果实体已存在于数据库中，则会更新。 如果该实体尚未存在于数据库中，则将其插入。 它将所有给定实体保存在单个事务中（在实体管理器而不是事务性的情况下）。 还支持部分更新，因为跳过了所有未定义的属性。 为了使值为`NULL`，你必须手动将该属性设置为等于`null`。
+- `save` - 保存给定实体或实体数组如果实体已存在于数据库中，则会更新如果该实体尚未存在于数据库中，则将其插入它将所有给定实体保存在单个事务中（在实体管理器而不是事务性的情况下）还支持部分更新，因为跳过了所有未定义的属性为了使值为`NULL`，你必须手动将该属性设置为等于`null`。
 
 ```typescript
 await manager.save(user);
 await manager.save([category1, category2, category3]);
 ```
 
-- `remove` - 删除给定的实体或实体数组。 它删除单个事务中的所有给定实体（在实体的情况下，管理器不是事务性的）。
+- `remove` - 删除给定的实体或实体数组它删除单个事务中的所有给定实体（在实体的情况下，管理器不是事务性的）。
 
 ```typescript
 await manager.remove(user);
@@ -179,7 +179,7 @@ await manager.count(User, { firstName: "Timber" }, "age", 3);
 const timbers = await manager.find(User, { firstName: "Timber" });
 ```
 
-- `findAndCount` - 查找指定条件的实体。 还会计算与给定条件匹配的所有实体数量，但忽略分页设置（`from`和`take` 选项）。
+- `findAndCount` - 查找指定条件的实体还会计算与给定条件匹配的所有实体数量，但忽略分页设置（`from`和`take` 选项）。
 
 ```typescript
 const [timbers, timbersCount] = await manager.findAndCount(User, {
@@ -200,7 +200,7 @@ const user = await manager.findOne(User, 1);
 const timber = await manager.findOne(User, { firstName: "Timber" });
 ```
 
-- `findOneOrFail` - 查找匹配某些 ID 或查找选项的第一个实体。 如果没有匹配，则 Rejects 一个 promise。
+- `findOneOrFail` - 查找匹配某些 ID 或查找选项的第一个实体如果没有匹配，则 Rejects 一个 promise。
 
 ```typescript
 const user = await manager.findOneOrFail(User, 1);
@@ -213,25 +213,25 @@ const timber = await manager.findOneOrFail(User, { firstName: "Timber" });
 await manager.clear(User);
 ```
 
-- `getRepository` - 获取`Repository`以对特定实体执行操作。 更过关于 [Repositories](https://typeorm.io/#/working-with-entity-manager/).
+- `getRepository` - 获取`Repository`以对特定实体执行操作更过关于 [Repositories](https://typeorm.io/#/working-with-entity-manager/).
 
 ```typescript
 const userRepository = manager.getRepository(User);
 ```
 
-- `getTreeRepository` - 获取`TreeRepository`以对特定实体执行操作。 更多关于[Repositories](https://typeorm.io/#/working-with-entity-manager/).
+- `getTreeRepository` - 获取`TreeRepository`以对特定实体执行操作更多关于[Repositories](https://typeorm.io/#/working-with-entity-manager/).
 
 ```typescript
 const categoryRepository = manager.getTreeRepository(Category);
 ```
 
-- `getMongoRepository` - 获取`MongoRepository`以对特定实体执行操作。 更多关于[MongoDB](https://typeorm.io/#/mongodb/).
+- `getMongoRepository` - 获取`MongoRepository`以对特定实体执行操作更多关于[MongoDB](https://typeorm.io/#/mongodb/).
 
 ```typescript
 const userRepository = manager.getMongoRepository(User);
 ```
 
-- `getCustomRepository` - 获取自定义实体库。 更多关于 [Custom repositories](https://typeorm.io/#/working-with-entity-manager/).
+- `getCustomRepository` - 获取自定义实体库更多关于 [Custom repositories](https://typeorm.io/#/working-with-entity-manager/).
 
 ```typescript
 const myUserRepository = manager.getCustomRepository(UserRepository);
