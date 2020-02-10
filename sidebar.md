@@ -30,8 +30,8 @@
     - [同构应用](/全栈开发/同构应用/README.md)
       
     - 技术栈
-      - [JAMStack](/全栈开发/技术栈/JAMStack.md)
-      - [MEANStack](/全栈开发/技术栈/MEANStack.md)
+      - [JAM Stack](/全栈开发/技术栈/JAM%20Stack.md)
+      - [MEAN Stack](/全栈开发/技术栈/MEAN%20Stack.md)
   - 工程实践
     - [SocketIO](/工程实践/SocketIO/README.md)
       
