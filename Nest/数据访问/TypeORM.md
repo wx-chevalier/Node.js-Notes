@@ -25,7 +25,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 export class AppModule {}
 ```
 
-forRoot() 方法从 TypeORM 包接受与 createConnection() 相同的配置对象。另外，我们可以在项目根目录中创建 ormconfig.json 文件，而不是将配置对象传递给 forRoot() 。
+forRoot() 方法从 TypeORM 包接受与 createConnection() 相同的配置对象。另外，我们可以在项目根目录中创建 ormconfig.json 文件，而不是将配置对象传递给 forRoot()。
 
 ```json
 {
