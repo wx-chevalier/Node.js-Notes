@@ -342,7 +342,7 @@ app.use(passport.session());
 
 注意上面的代码里有个 req.logIn()，它不是 http 模块原生的方法，也不是 express 中的方法，而是 passport 加上的，passport 扩展了 HTTP request，添加了四种方法。
 
-logIn(user, options, callback) ：用 login() 也可以。作用是为登录用户初始化 session。options 可设置 session 为 false，即不初始化 session，默认为 true。logOut() ：别名为 logout()。作用是登出用户，删除该用户 session。不带参数。isAuthenticated() ：不带参数。作用是测试该用户是否存在于 session 中(即是否已登录)。若存在返回 true。事实上这个比登录验证要用的更多，毕竟 session 通常会保留一段时间，在此期间判断用户是否已登录用这个方法就行了。isUnauthenticated() ：不带参数。和上面的作用相反。
+logIn(user, options, callback)：用 login() 也可以。作用是为登录用户初始化 session。options 可设置 session 为 false，即不初始化 session，默认为 true。logOut()：别名为 logout()。作用是登出用户，删除该用户 session。不带参数。isAuthenticated()：不带参数。作用是测试该用户是否存在于 session 中(即是否已登录)。若存在返回 true。事实上这个比登录验证要用的更多，毕竟 session 通常会保留一段时间，在此期间判断用户是否已登录用这个方法就行了。isUnauthenticated()：不带参数。和上面的作用相反。
 
 验证用户提交的凭证是否正确，是与 session 中储存的对象进行对比，所以涉及到从 session 中存取数据，需要做 session 对象序列化与反序列化。调用代码如下：
 
