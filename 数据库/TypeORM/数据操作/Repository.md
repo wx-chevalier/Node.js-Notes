@@ -35,7 +35,7 @@ userRepository.find({ select: ["firstName", "lastName"] });
 ```typescript
 userRepository.find({ relations: ["profile", "photos", "videos"] });
 userRepository.find({
-  relations: ["profile", "photos", "videos", "videos.video_attributes"]
+  relations: ["profile", "photos", "videos", "videos.video_attributes"],
 });
 ```
 
@@ -48,9 +48,9 @@ userRepository.find({
     leftJoinAndSelect: {
       profile: "user.profile",
       photo: "user.photos",
-      video: "user.videos"
-    }
-  }
+      video: "user.videos",
+    },
+  },
 });
 ```
 
@@ -72,8 +72,8 @@ userRepository.find({ where: { name: { first: "Timber", last: "Saw" } } });
 userRepository.find({
   where: [
     { firstName: "Timber", lastName: "Saw" },
-    { firstName: "Stan", lastName: "Lee" }
-  ]
+    { firstName: "Stan", lastName: "Lee" },
+  ],
 });
 ```
 
@@ -89,8 +89,8 @@ SELECT * FROM "user" WHERE ("firstName" = 'Timber' AND "lastName" = 'Saw') OR ("
 userRepository.find({
   order: {
     name: "ASC",
-    id: "DESC"
-  }
+    id: "DESC",
+  },
 });
 ```
 
@@ -100,7 +100,7 @@ userRepository.find({
 
 ```typescript
 userRepository.find({
-  skip: 5
+  skip: 5,
 });
 ```
 
@@ -108,7 +108,7 @@ userRepository.find({
 
 ```typescript
 userRepository.find({
-  take: 10
+  take: 10,
 });
 ```
 
@@ -117,10 +117,10 @@ userRepository.find({
 ```typescript
 userRepository.find({
   order: {
-    columnName: "ASC"
+    columnName: "ASC",
   },
   skip: 0,
-  take: 10
+  take: 10,
 });
 ```
 
@@ -128,7 +128,7 @@ userRepository.find({
 
 ```typescript
 userRepository.find({
-  cache: true
+  cache: true,
 });
 ```
 
@@ -150,7 +150,7 @@ userRepository.find({
 
 ```typescript
 userRepository.findOne(1, {
-  lock: { mode: "optimistic", version: 1 }
+  lock: { mode: "optimistic", version: 1 },
 });
 ```
 
@@ -162,15 +162,15 @@ userRepository.find({
   relations: ["profile", "photos", "videos"],
   where: {
     firstName: "Timber",
-    lastName: "Saw"
+    lastName: "Saw",
   },
   order: {
     name: "ASC",
-    id: "DESC"
+    id: "DESC",
   },
   skip: 5,
   take: 10,
-  cache: true
+  cache: true,
 });
 ```
 
@@ -184,7 +184,7 @@ TypeORM 提供了许多内置运算符，可用于创建更复杂的查询：
 import { Not } from "typeorm";
 
 const loadedPosts = await connection.getRepository(Post).find({
-  title: Not("About #1")
+  title: Not("About #1"),
 });
 ```
 
@@ -200,7 +200,7 @@ SELECT * FROM "post" WHERE "title" != 'About #1'
 import { LessThan } from "typeorm";
 
 const loadedPosts = await connection.getRepository(Post).find({
-  likes: LessThan(10)
+  likes: LessThan(10),
 });
 ```
 
@@ -215,7 +215,7 @@ SELECT * FROM "post" WHERE "likes" < 10
 ```ts
 import { LessThanOrEqual } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
-  likes: LessThanOrEqual(10)
+  likes: LessThanOrEqual(10),
 });
 ```
 
@@ -231,7 +231,7 @@ SELECT * FROM "post" WHERE "likes" <= 10
 import { MoreThan } from "typeorm";
 
 const loadedPosts = await connection.getRepository(Post).find({
-  likes: MoreThan(10)
+  likes: MoreThan(10),
 });
 ```
 
@@ -246,7 +246,7 @@ SELECT * FROM "post" WHERE "likes" > 10
 ```ts
 import { MoreThanOrEqual } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
-  likes: MoreThanOrEqual(10)
+  likes: MoreThanOrEqual(10),
 });
 ```
 
@@ -262,7 +262,7 @@ SELECT * FROM "post" WHERE "likes" >= 10
 import { Equal } from "typeorm";
 
 const loadedPosts = await connection.getRepository(Post).find({
-  title: Equal("About #2")
+  title: Equal("About #2"),
 });
 ```
 
@@ -278,7 +278,7 @@ SELECT * FROM "post" WHERE "title" = 'About #2'
 import { Like } from "typeorm";
 
 const loadedPosts = await connection.getRepository(Post).find({
-  title: Like("%out #%")
+  title: Like("%out #%"),
 });
 ```
 
@@ -294,7 +294,7 @@ SELECT * FROM "post" WHERE "title" LIKE '%out #%'
 import { Between } from "typeorm";
 
 const loadedPosts = await connection.getRepository(Post).find({
-  likes: Between(1, 10)
+  likes: Between(1, 10),
 });
 ```
 
@@ -310,7 +310,7 @@ SELECT * FROM "post" WHERE "likes" BETWEEN 1 AND 10
 import { In } from "typeorm";
 
 const loadedPosts = await connection.getRepository(Post).find({
-  title: In(["About #2", "About #3"])
+  title: In(["About #2", "About #3"]),
 });
 ```
 
@@ -326,7 +326,7 @@ SELECT * FROM "post" WHERE "title" IN ('About #2','About #3')
 import { Any } from "typeorm";
 
 const loadedPosts = await connection.getRepository(Post).find({
-  title: Any(["About #2", "About #3"])
+  title: Any(["About #2", "About #3"]),
 });
 ```
 
@@ -342,7 +342,7 @@ SELECT * FROM "post" WHERE "title" = ANY(['About #2','About #3'])
 import { IsNull } from "typeorm";
 
 const loadedPosts = await connection.getRepository(Post).find({
-  title: IsNull()
+  title: IsNull(),
 });
 ```
 
@@ -358,7 +358,7 @@ SELECT * FROM "post" WHERE "title" IS NULL
 import { Raw } from "typeorm";
 
 const loadedPosts = await connection.getRepository(Post).find({
-  likes: Raw("1 + likes = 4")
+  likes: Raw("1 + likes = 4"),
 });
 ```
 
@@ -377,7 +377,7 @@ import { Not, MoreThan, Equal } from "typeorm";
 
 const loadedPosts = await connection.getRepository(Post).find({
   likes: Not(MoreThan(10)),
-  title: Not(Equal("About #2"))
+  title: Not(Equal("About #2")),
 });
 ```
 
@@ -418,7 +418,7 @@ export class UserRepository extends Repository<User> {
 import { getCustomRepository } from "typeorm";
 import { UserRepository } from "./repository/UserRepository";
 
-const userRepository = getCustomRepository(UserRepository); // 或connection.getCustomRepository或manager.getCustomRepository（）
+const userRepository = getCustomRepository(UserRepository); // 或connection.getCustomRepository或manager.getCustomRepository()
 const user = userRepository.create(); // 和 const user = new User();一样
 user.firstName = "Timber";
 user.lastName = "Saw";
@@ -510,7 +510,7 @@ const timber = await userRepository.findByName("Timber", "Saw");
 例如：
 
 ```typescript
-await connection.transaction(async manager => {
+await connection.transaction(async (manager) => {
   // 在事务中你必须使用事务提供的管理器实例而不能使用全局管理器、存储库或自定义存储库，
   // 因为这个管理器是独占的和事务性的，
   // 如果让我们自定义存储库作为服务,它的一个"manager"属性应该 是EntityManager的唯一实例，但没有全局的EntityManager实例，并且也不可能有。
