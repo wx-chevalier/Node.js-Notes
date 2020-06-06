@@ -1,5 +1,6 @@
   - [Deno](/Deno/README.md)
     - [Hello World](/Deno/Hello%20World.md)
+    - [调试](/Deno/调试.md)
   - [Nest](/Nest/README.md)
     - MVC
       - [依赖注入与模块](/Nest/MVC/依赖注入与模块.md)
