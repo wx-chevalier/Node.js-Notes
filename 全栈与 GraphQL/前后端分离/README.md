@@ -16,7 +16,7 @@
 
 笔者认为对于前后端分离的理念有重要启发意义的即是 CS 架构与无状态这两个约束，传统的 BS 开发中因为使用了 Cookie-Session 这种存储模式，将数据的传输在服务端与客户端透明化；虽然方便了我们在服务端使用，却也导致了强耦合
 
-服务端模板渲染(Aspx 、 JSP、PHP )、客户端渲染(ExtJS )与服务端渲染(ServerSide Rendering )这三类
+服务端模板渲染(Aspx 、JSP、PHP )、客户端渲染(ExtJS )与服务端渲染(ServerSide Rendering )这三类
 
 笔者认为的前后端分离架构下的团队组织方式如下：
 

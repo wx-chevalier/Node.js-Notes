@@ -8,7 +8,7 @@
 
 几乎所有的应用都需要登陆认证！ Passport.js 是 Node.js 中的一个做登录验证的中间件，极其灵活和模块化，并且可与 Express、Sails 等 Web 框架无缝集成。Passport 功能单一，即只能做登录验证，但非常强大，支持本地账号验证和第三方账号登录验证(OAuth 和 OpenID 等)，支持大多数 Web 网站和服务。
 
-策略(Strategy )是 passport 中最重要的概念。passport 模块本身不能做认证，所有的认证方法都以策略模式封装为插件，需要某种认证时将其添加到 package.json 即可。策略模式是一种设计模式，它将算法和对象分离开来，通过加载不同的算法来实现不同的行为，适用于相关类的成员相同但行为不同的场景，比如在 passport 中，认证所需的字段都是用户名、邮箱、密码等，但认证方法是不同的。依据策略模式，passport 支持了众多的验证方案，包括 Basic、Digest 、 OAuth(1.0，和 2.0 的三种实现)、 JWT 等。
+策略(Strategy )是 passport 中最重要的概念。passport 模块本身不能做认证，所有的认证方法都以策略模式封装为插件，需要某种认证时将其添加到 package.json 即可。策略模式是一种设计模式，它将算法和对象分离开来，通过加载不同的算法来实现不同的行为，适用于相关类的成员相同但行为不同的场景，比如在 passport 中，认证所需的字段都是用户名、邮箱、密码等，但认证方法是不同的。依据策略模式，passport 支持了众多的验证方案，包括 Basic、Digest 、OAuth(1.0，和 2.0 的三种实现)、JWT 等。
 
 # 策略配置
 
@@ -24,13 +24,13 @@ passport.use(
     {
       usernameField: "email",
 
-      passwordField: "password"
+      passwordField: "password",
     },
 
     (uEmail, uPassword, done) => {
       db.User.findOne({ email: uEmail, provider: "local" })
 
-        .then(user => {
+        .then((user) => {
           if (user) {
             // validatePassword 是 User 模型自带的数据校验辅助函数
 
@@ -42,7 +42,7 @@ passport.use(
                 return done(null, user) || true;
               })
 
-              .catch(err => {
+              .catch((err) => {
                 return done(err, null);
               });
           } else {
@@ -50,7 +50,7 @@ passport.use(
           }
         })
 
-        .catch(err => {
+        .catch((err) => {
           done(err, null);
         });
     }
@@ -63,14 +63,14 @@ passport.use(
 ```js
 // 绑定对于用户密码进行加密的操作
 
-userSchema.statics.hashPassword = rawPwd => {
+userSchema.statics.hashPassword = (rawPwd) => {
   return bcrypt.hash(rawPwd);
 };
 
 // 绑定对于密码的验证操作
 
-userSchema.methods.validatePassword = function(rawPwd) {
-  return bcrypt.compare(rawPwd, this.password).then(isValid => {
+userSchema.methods.validatePassword = function (rawPwd) {
+  return bcrypt.compare(rawPwd, this.password).then((isValid) => {
     return isValid
       ? true
       : Promise.reject(new Error(lang.t("auth:errors:invalidlogin")));
@@ -179,10 +179,10 @@ app.post(
 
     failureRedirect: "/login",
 
-    failureFlash: true
+    failureFlash: true,
   }),
 
-  function(req, res) {
+  function (req, res) {
     // 验证成功则调用此回调函数
 
     res.redirect("/users/" + req.user.username);
@@ -349,16 +349,16 @@ logIn(user, options, callback)：用 login() 也可以。作用是为登录用�
 ```js
 // 获取用户编号，用于在 logIn 方法执行时向 Session 中写入用户编号，ID 或者 Token 皆可
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
   done(null, user._id);
 });
 
 // 根据 ID 查找用户，也是为了判断用户是否存在
 
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(function (id, done) {
   db.User.findById(id)
 
-    .then(user => {
+    .then((user) => {
       if (user) {
         done(null, user);
       } else {
@@ -368,7 +368,7 @@ passport.deserializeUser(function(id, done) {
       return true;
     })
 
-    .catch(err => {
+    .catch((err) => {
       done(err, null);
     });
 });
@@ -417,7 +417,7 @@ module.exports = (req, res, next) => {
 ```
 
 ```js
-app.get("/logout", function(req, res) {
+app.get("/logout", function (req, res) {
   req.logout();
 
   res.redirect("/");
@@ -502,17 +502,17 @@ passport.use(
 
       callbackURL: appconfig.host + "/login/github/callback",
 
-      scope: ["user:email"]
+      scope: ["user:email"],
     },
 
     (accessToken, refreshToken, profile, cb) => {
       db.User.processProfile(profile)
 
-        .then(user => {
+        .then((user) => {
           return cb(null, user) || true;
         })
 
-        .catch(err => {
+        .catch((err) => {
           return cb(err, null) || true;
         });
     }
@@ -525,7 +525,7 @@ router.get(
   "/login/ms",
 
   passport.authenticate("windowslive", {
-    scope: ["wl.signin", "wl.basic", "wl.emails"]
+    scope: ["wl.signin", "wl.basic", "wl.emails"],
   })
 );
 
@@ -551,7 +551,7 @@ router.get(
   "/login/slack",
 
   passport.authenticate("slack", {
-    scope: ["identity.basic", "identity.email"]
+    scope: ["identity.basic", "identity.email"],
   })
 );
 
@@ -563,7 +563,7 @@ router.get(
   passport.authenticate("windowslive", {
     failureRedirect: "/login",
 
-    successRedirect: "/"
+    successRedirect: "/",
   })
 );
 
@@ -573,7 +573,7 @@ router.get(
   passport.authenticate("google", {
     failureRedirect: "/login",
 
-    successRedirect: "/"
+    successRedirect: "/",
   })
 );
 
@@ -583,7 +583,7 @@ router.get(
   passport.authenticate("facebook", {
     failureRedirect: "/login",
 
-    successRedirect: "/"
+    successRedirect: "/",
   })
 );
 
@@ -593,7 +593,7 @@ router.get(
   passport.authenticate("github", {
     failureRedirect: "/login",
 
-    successRedirect: "/"
+    successRedirect: "/",
   })
 );
 
@@ -603,7 +603,7 @@ router.get(
   passport.authenticate("slack", {
     failureRedirect: "/login",
 
-    successRedirect: "/"
+    successRedirect: "/",
   })
 );
 
@@ -613,7 +613,7 @@ router.get(
   passport.authenticate("azure_ad_oauth2", {
     failureRedirect: "/login",
 
-    successRedirect: "/"
+    successRedirect: "/",
   })
 );
 ```
