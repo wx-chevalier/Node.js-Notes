@@ -15,14 +15,14 @@
 
   <p align="center">
     <br />
-    <a href="https://ng-tech.icu/Node-Series"><strong>Explore the docs »</strong></a>
+    <a href="https://ng-tech.icu/Node-Series"><strong>在线阅读</strong></a>
     <br />
     <br />
-    <a href="https://github.com/wx-chevalier/Node-Series">View Demo</a>
+    <a href="https://github.com/wx-chevalier/Node-Series">速览手册</a>
     ·
     <a href="https://github.com/wx-chevalier/Node-Series/issues">Report Bug</a>
     ·
-    <a href="https://github.com/wx-chevalier/Node-Series/issues">Request Feature</a>
+    <a href="https://github.com/wx-chevalier/Node-Series/issues">参考资料</a>
 
   </p>
 </p>
