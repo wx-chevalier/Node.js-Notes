@@ -1,0 +1,47 @@
+{
+  "name": "@tsdi/platform-browser-boot",
+  "version": "5.1.18",
+  "description": "tsioc is AOP, Ioc container, via typescript decorator",
+  "typings": "./lib/index.d.ts",
+  "scripts": {
+    "build": "ts-node -r tsconfig-paths/register taskfile.ts"
+  },
+  "keywords": [
+    "IoC",
+    "AOP",
+    "dependency",
+    "injection",
+    "ts-ioc",
+    "@tsdi",
+    "tsioc",
+    "container",
+    "decorator",
+    "autofac",
+    "Inject",
+    "type",
+    "typescript"
+  ],
+  "author": "houjun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhouhoujun/tsioc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhouhoujun/tsioc.git"
+  },
+  "homepage": "https://github.com/zhouhoujun/tsioc#readme",
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.13",
+    "tslib": "~1.9.3",
+    "@tsdi/ioc": "^5.1.18",
+    "@tsdi/core": "^5.1.18",
+    "@tsdi/boot": "^5.1.18",
+    "@tsdi/platform-browser": "^5.1.18"
+  },
+  "directories": {
+    "lib": "lib"
+  }
+}

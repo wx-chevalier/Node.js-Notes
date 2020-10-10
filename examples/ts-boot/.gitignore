@@ -1,0 +1,15 @@
+.DS_STORE
+.vscode/.*
+esnext
+node_modules
+lib
+dist
+bundles
+es2015
+es2017
+es2015
+fesm2015
+fesm5
+package-lock.json
+
+

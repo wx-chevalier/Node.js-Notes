@@ -1,0 +1,15 @@
+!/.*.js
+*.min.*
+*.production.*
+*.md
+*.js
+*.json
+*.spec.ts
+*.test.ts
+*.d.ts
+
+coverage
+dist
+node_modules
+build
+scripts

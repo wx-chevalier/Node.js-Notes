@@ -1,0 +1,8 @@
+.vscode
+src
+test
+gulpfile.ts
+taskfile.ts
+tsconfig.json
+tslint.json
+package-lock.json

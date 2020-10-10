@@ -1,0 +1,57 @@
+{
+  "name": "@tsdi/unit",
+  "version": "5.1.18",
+  "description": "unit testing framework, base on AOP, Ioc container",
+  "scripts": {
+    "postinstall": "npm prune",
+    "build": "ts-node -r tsconfig-paths/register taskfile.ts"
+  },
+  "keywords": [
+    "unit",
+    "IoC",
+    "AOP",
+    "dependency",
+    "injection",
+    "ts-ioc",
+    "@tsdi",
+    "tsioc",
+    "container",
+    "decorator",
+    "autofac",
+    "Inject",
+    "type",
+    "typescript"
+  ],
+  "author": "houjun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhouhoujun/tsioc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhouhoujun/tsioc.git"
+  },
+  "homepage": "https://github.com/zhouhoujun/tsioc/tree/master/packages/unit#readme",
+  "dependencies": {
+    "@tsdi/ioc": "^5.1.18",
+    "@tsdi/core": "^5.1.18",
+    "@tsdi/aop": "^5.1.18",
+    "@tsdi/boot": "^5.1.18",
+    "@tsdi/logs": "^5.1.18",
+    "@types/mocha": "^5.2.5",
+    "@types/expect": "^1.20.3",
+    "assert": "^1.4.1",
+    "expect": "^23.6.0",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^1.9.2"
+  },
+  "peerDependencies": {
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1"
+  }
+}

@@ -1,0 +1,14 @@
+.vscode
+.idea
+.DS_Store
+yarn.lock
+node_modules
+dist
+temp
+build
+*.log
+lib
+test/**/*.js
+test/**/*.js.map
+example
+dev

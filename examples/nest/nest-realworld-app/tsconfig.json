@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "lib": ["es2017"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": false,
+    "allowJs": true,
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "baseUrl": ".",
+  },
+  "include": ["src/**/*"],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.d.ts",
+    "assets",
+    "build",
+    "dist",
+    "indep-pkgs",
+    "node_modules",
+    "scripts",
+    "ssr",
+    "stories",
+    "__test__",
+    "test"
+  ]
+}

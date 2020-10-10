@@ -1,0 +1,87 @@
+{
+  "name": "nestjs-realworld-example-app",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/anishkny/node-express-realworld-example-app.svg?branch=master)](https://travis-ci.org/anishkny/node-express-realworld-example-app)",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node ./node_modules/husky/lib/installer/bin install",
+    "build": "npm run clean && tsc",
+    "clean": "ets clean",
+    "lint-staged": "lint-staged",
+    "lint": "run-p lint:*",
+    "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts -f friendly --max-warnings 10",
+    "lint:ts": "tslint -p . -t stylish",
+    "lint:tsc": "tsc -p tsconfig.json --noEmit",
+    "prettier-all": "prettier --write './src/**/*.ts' '!src/{assets,datas}/**'",
+    "start": "node index.js",
+    "start:watch": "nodemon",
+    "start:prod": "node dist/main.js",
+    "test": "jest --config=jest.json",
+    "test:watch": "jest --watch --config=jest.json",
+    "test:coverage": "jest --config=jest.json --coverage --coverageDirectory=coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BE-Kits/node-examples.git"
+  },
+  "author": "lu.jakob@googlemail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BE-Kits/node-examples/issues"
+  },
+  "homepage": "https://github.com/BE-Kits/node-examples#readme",
+  "dependencies": {
+    "@nestjs/common": "^6.10.14",
+    "@nestjs/core": "^6.10.14",
+    "@nestjs/microservices": "^6.10.14",
+    "@nestjs/platform-express": "^6.10.14",
+    "@nestjs/swagger": "^4.1.10",
+    "@nestjs/testing": "^6.10.14",
+    "@nestjs/typeorm": "^6.2.0",
+    "@nestjs/websockets": "^6.10.14",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.11.0",
+    "crypto": "^1.0.1",
+    "crypto-js": "^3.1.9-1",
+    "dayjs": "^1.8.19",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.17.1",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.4",
+    "slug": "^2.1.0",
+    "swagger-ui-express": "^4.1.2",
+    "typeorm": "^0.2.22",
+    "typescript": "^3.7.4",
+    "ueact-utils": "^0.0.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "@types/node": "^13.1.6",
+    "@wx-fc/app-config": "^0.2.7",
+    "atob": ">=2.1.2",
+    "cross-env": "^6.0.3",
+    "deep-extend": ">=0.6.0",
+    "extend": ">=3.0.2",
+    "husky": "^4.0.9",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.3.0",
+    "ts-node": "^8.6.1",
+    "tslint": "^5.20.1"
+  },
+  "commitlint": {
+    "extends": [
+      "@wx-fc"
+    ]
+  },
+  "prettier": "@wx-fc/prettier-config/semi",
+  "remarkConfig": {
+    "plugins": [
+      "@wx-fc/remark-config"
+    ]
+  }
+}

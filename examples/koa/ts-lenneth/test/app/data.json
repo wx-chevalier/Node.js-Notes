@@ -1,0 +1,6 @@
+{
+  "userList": [
+    { "id": "A111", "name": "zhangsan", "age": "30" },
+    { "id": "A222", "name": "lisi", "age": "20" }
+  ]
+}

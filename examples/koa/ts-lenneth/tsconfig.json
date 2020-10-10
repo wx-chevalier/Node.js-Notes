@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2017",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "preserveConstEnums": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "importHelpers": true,
+    "declaration": true,
+    "rootDir": ".",
+    "outDir": "./lib",
+    "baseUrl": ".",
+    "paths": {
+      "@core": ["src/core"],
+      "@interfaces": ["src/interfaces"],
+      "@decorators": ["src/decorators"],
+      "@constants": ["src/constants"],
+      "@common": ["src/common"],
+      "@services": ["src/services"],
+      "@utils": ["src/utils"]
+    },
+    "lib": ["es6", "dom", "es7"]
+  },
+  "exclude": ["node_modules", "lib", "build", "example", "test"],
+  "include": ["./typings", "./src/**/*.ts"]
+}

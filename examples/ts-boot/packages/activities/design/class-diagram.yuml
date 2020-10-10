@@ -1,0 +1,23 @@
+// {type:class}
+
+[Activity]1-<>1[ActivityContext]
+[Activity]1-<>1[ActivityBuilder]
+[ContextFactory]1-<>[ActivityContext]
+
+[Activity]^-[ControlActivty]
+
+[ControlActivty]^-[ChainActivty]
+[ControlActivty]^-[HandleActivity]
+[ControlActivty]^-[ExpressionActivity]
+[ControlActivty]^-[IfActivity]
+[ControlActivty]^-[WhileActivity]
+[ControlActivty]^-[DoWhileActivity]
+[ControlActivty]^-[ThrowActivity]
+[ControlActivty]^-[TryCatchActivity]
+[ControlActivty]^-[DelayActivity]
+[ControlActivty]^-[ConfirmActivity]
+
+[Activity]^-[ExpressionActivty]
+[Activity]^-[AssignActivty]
+[Activity]^-[ExecuteActivty]
+[Activity]^-[ContextActivty]

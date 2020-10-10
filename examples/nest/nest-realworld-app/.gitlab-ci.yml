@@ -1,0 +1,20 @@
+image: docker:git
+
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ''
+  IMAGE: ${DOCKER_REGISTRY_SERVER}/nest/nest-realworld-app
+
+services:
+  - name: docker:dind
+
+before_script:
+  - docker info
+  - docker login ${DOCKER_REGISTRY_SERVER} -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASSWORD}
+
+build:
+  stage: build
+  script:
+    - docker build -t $IMAGE:$CI_COMMIT_SHA -t $IMAGE:latest -f scripts/docker/Dockerfile .
+    - docker push $IMAGE:$CI_COMMIT_SHA
+    - docker push $IMAGE:latest

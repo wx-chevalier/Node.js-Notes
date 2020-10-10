@@ -1,0 +1,48 @@
+{
+  "name": "@tsdi/components",
+  "version": "5.1.18",
+  "description": "DI Module manager, application components. base on AOP, Ioc container, via @tsdi/core .",
+  "scripts": {
+    "build": "ts-node -r tsconfig-paths/register taskfile.ts"
+  },
+  "keywords": [
+    "boot",
+    "frameworks",
+    "Application",
+    "IoC",
+    "dependency",
+    "injection",
+    "ts-ioc",
+    "tsdi",
+    "tsioc",
+    "container",
+    "decorator",
+    "autofac",
+    "Inject",
+    "type",
+    "typescript"
+  ],
+  "author": "houjun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhouhoujun/tsioc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhouhoujun/tsioc.git"
+  },
+  "homepage": "https://github.com/zhouhoujun/tsioc#readme",
+  "dependencies": {},
+  "peerDependencies": {
+    "@tsdi/ioc": "^5.1.18",
+    "@tsdi/core": "^5.1.18",
+    "@tsdi/boot": "^5.1.18",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "~1.9.3"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {}
+}
