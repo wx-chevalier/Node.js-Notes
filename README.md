@@ -15,7 +15,7 @@
 
   <p align="center">
     <br />
-    <a href="https://ng-tech.icu/Node-Series"><strong>在线阅读</strong></a>
+    <a href="https://ng-tech.icu/Node-Series"><strong>在线阅读 >> </strong></a>
     <br />
     <br />
     <a href="https://github.com/wx-chevalier/Node-Series">速览手册</a>
