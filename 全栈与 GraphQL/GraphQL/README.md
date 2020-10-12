@@ -8,11 +8,7 @@ GraphQL 是由 Facebook 开源的查询语言标准，其并非具体的后端�
 
 GraphQL 并不能消融业务内在的复杂度，而是通过引入灵活的数据抽象层，尽量解耦前后端之间的直接关联或者阻塞；在满足日益增长不断变化的 Web/Mobile 端复杂的数据需求的同时，尽可能避免服务端内部逻辑复杂度的无序增加。GraphQL 能够用于实践 [BFF](https://www.thoughtworks.com/radar/techniques/bff-backend-for-frontends) 理念，其允许将部分数据组装/聚合地逻辑交于前端完成，即给予了前端灵活变更、快速迭代的空间，也能保证后端的相对中立性，不会疲于应付不同端或者不同界面设计的差异化数据格式要求。
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/1/1/fdasfasdfdasfsd.gif)
-
 # GraphQL 与 REST
-
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/10/2/1-LidfuCRZipAKpVeRqh1Wjg.png)
 
 经典的 REST 架构模式立足资源，规范了基础的增删改查操作，却未能很好地处理资源之间的关联，及其衍生的一系列接口命名、代码分层等问题。接口名是对于某个逻辑的抽象描述，其往往会关联到某个特定的服务以及特定的多表查询语句，这就导致了接口、服务、SQL 语句与某个逻辑的强耦合性，而无法动态地应对业务逻辑的快速变化。笔者在早年间提出的 [RARF](https://parg.co/AvR) 架构模式中也探讨过，将请求再资源间响应式地流动与转换，单个资源仅需要关心与其他邻接资源的转换而不需要耦合于某个接口的返回，这也是典型的图模式。
 

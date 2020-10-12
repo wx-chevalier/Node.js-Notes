@@ -10,11 +10,11 @@ const fs = require("fs");
 const port = process.argv[2] || 8033;
 
 const server = http
-  .createServer(function(request, response) {
+  .createServer(function (request, response) {
     const uri = url.parse(request.url).pathname;
     let filename = path.join(process.cwd(), uri);
 
-    fs.exists(filename, function(exists) {
+    fs.exists(filename, function (exists) {
       if (!exists) {
         response.writeHead(404, { "Content-Type": "text/plain" });
         console.log("node.js: 404 Not Found");
@@ -25,7 +25,7 @@ const server = http
 
       if (fs.statSync(filename).isDirectory()) filename += "/index.html";
 
-      fs.readFile(filename, "binary", function(err, file) {
+      fs.readFile(filename, "binary", function (err, file) {
         if (err) {
           response.writeHead(500, { "Content-Type": "text/plain" });
           response.write(err + "\n");
@@ -66,4 +66,4 @@ node --inspect --debug-brk index.js
 chrome-devtools://devtools/bundled/inspector.html?experiments=true&v8only=true&ws=127.0.0.1:9229/69beb5d3-2b1c-4513-aa4b-78d1eb1865ea
 ```
 
-在 Chrome 中直接打开该链接，即可开始调试: ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/1/3/QQ20170125-0123.png)
+在 Chrome 中直接打开该链接，即可开始调试:

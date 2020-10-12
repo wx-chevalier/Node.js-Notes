@@ -6,8 +6,6 @@
 
 在传统的命令执行中，我们需要将工具添加到 package.json 的 `scripts` 配置中，这种方式还需要我们以 `--` 方式传递参数；我们也可以使用 `alias npmx=PATH=$(npm bin):$PATH,` 或者 `./node_modules/.bin/mocha` 方式来执行命令，虽然都能达到目标，但不免繁杂了许多。而 npx 允许我们以 `npx mocha` 这样的方式直接运行本地安装的 mocha 命令。
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/6/1/1-A4HJT1FHQA_1_z3aMBc5mg.gif)
-
 完整的 npx 命令提示如下：
 
 ```sh
