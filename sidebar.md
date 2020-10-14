@@ -160,8 +160,12 @@
           - [日志](/框架使用/数据库/TypeORM/配置/日志.md)
           - [缓存](/框架使用/数据库/TypeORM/配置/缓存.md)
   - 语法基础
+    - [Streams](/语法基础/Streams/README.md)
+      - [Pipe](/语法基础/Streams/Pipe.md)
+      - [Readable Stream](/语法基础/Streams/Readable%20Stream.md)
+      - [Writable Stream](/语法基础/Streams/Writable%20Stream.md)
+      - [其他 Stream](/语法基础/Streams/其他%20Stream.md)
     - 事件 IO
-      - [Streams](/语法基础/事件%20IO/Streams.md)
       - [Thread](/语法基础/事件%20IO/Thread.md)
       - [事件机制](/语法基础/事件%20IO/事件机制.md)
       - [异步 IO](/语法基础/事件%20IO/异步%20IO.md)
@@ -177,5 +181,6 @@
       - [常用模块](/语法基础/快速开始/常用模块.md)
       - [开发环境](/语法基础/快速开始/开发环境.md)
     - 文件存储
+      - [文件写入](/语法基础/文件存储/文件写入.md)
       - [文件系统](/语法基础/文件存储/文件系统.md)
-      - [文件读写](/语法基础/文件存储/文件读写.md)
+      - [文件读取](/语法基础/文件存储/文件读取.md)
