@@ -155,7 +155,7 @@ query {
 }
 ```
 
-# 链接
+# TBD
 
 - 典型案例，参考 [howtographql](https://www.howtographql.com/basics/3-big-picture/) 中的介绍，
 

@@ -54,7 +54,7 @@ import { HelloController } from "../controller/HelloController";
 @Module({
   modules: [],
 
-  controllers: [HelloController]
+  controllers: [HelloController],
 })
 export class ApplicationModule {}
 ```
@@ -106,6 +106,6 @@ const app = await NestFactory.create<NestExpressApplication>(ApplicationModule);
 
 不过一般情况下不需要指定这个类型。
 
-# 链接
+# TBD
 
 - https://keelii.com/2019/07/03/nestjs-framework-tutorial-3/
