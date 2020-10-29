@@ -6,7 +6,9 @@ GraphQL 是由 Facebook 开源的查询语言标准，其并非具体的后端�
 
 ![default](https://user-images.githubusercontent.com/5803001/39741543-ef8d4c50-52cc-11e8-9d16-c3f71329290a.jpg)
 
-GraphQL 并不能消融业务内在的复杂度，而是通过引入灵活的数据抽象层，尽量解耦前后端之间的直接关联或者阻塞；在满足日益增长不断变化的 Web/Mobile 端复杂的数据需求的同时，尽可能避免服务端内部逻辑复杂度的无序增加。GraphQL 能够用于实践 [BFF](https://www.thoughtworks.com/radar/techniques/bff-backend-for-frontends) 理念，其允许将部分数据组装/聚合地逻辑交于前端完成，即给予了前端灵活变更、快速迭代的空间，也能保证后端的相对中立性，不会疲于应付不同端或者不同界面设计的差异化数据格式要求。
+GraphQL 解决了现代分布式架构（如微服务）中的一些共性问题：当开发人员把系统分解成很多小块时，他们通常还要把信息重新聚合起来才能解决业务需求。它并不能消融业务内在的复杂度，而是通过引入灵活的数据抽象层，尽量解耦前后端之间的直接关联或者阻塞；在满足日益增长不断变化的 Web/Mobile 端复杂的数据需求的同时，尽可能避免服务端内部逻辑复杂度的无序增加。GraphQL 能够用于实践 [BFF](https://www.thoughtworks.com/radar/techniques/bff-backend-for-frontends) 理念，其允许将部分数据组装/聚合地逻辑交于前端完成，即给予了前端灵活变更、快速迭代的空间，也能保证后端的相对中立性，不会疲于应付不同端或者不同界面设计的差异化数据格式要求。
+
+但是就像所有强大的抽象一样，它提供的是一种折衷方案，团队要认真考虑，以避免长线上的负面影响。比如，我们已经看到有团队通过聚合工具暴露了过多的底层实现细节，导致架构出现了不必要的脆弱性。当团队试图借助聚合工具来创建规范化的、通用的、中心化的数据模型时，就会把短线上的便利变成长线上的麻烦。我们鼓励团队使用 GraphQL 及其迅速成长的周边工具，但是，要小心别过度追求技术通用性，不要试图用一项技术解决很多问题。
 
 # GraphQL 与 REST
 
@@ -126,45 +128,3 @@ GraphQL 本质上是面向消费者的，客户端驱动的开发模式；它允
   }
 }
 ```
-
-# 快速开始
-
-值得一提的是，[Github Explorer](https://developer.github.com/v4/explorer/) 是非常不错的在 Github GraphQL API 中实践 GraphQL 的在线练习场，也可以在 [Backend-Boilerplate/graphql](https://github.com/wx-chevalier/Backend-Boilerplate/blob/master/node/graphql) 中了解笔者的 GraphQL 相关模板。
-
-```gql
-query {
-  user(login: "wx-chevalier") {
-    starredRepositories {
-      totalCount
-    }
-    followers {
-      totalCount
-    }
-    repositories(first: 35) {
-      nodes {
-        id
-        name
-        descriptionHTML
-        forkCount
-        stargazers {
-          totalCount
-        }
-      }
-    }
-  }
-}
-```
-
-# TBD
-
-- 典型案例，参考 [howtographql](https://www.howtographql.com/basics/3-big-picture/) 中的介绍，
-
-- https://github.com/sogko/graphql-schema-language-cheat-sheet
-
-- https://gist.github.com/jbritton/1f60ef440686b51ee37b708e6376b26e
-
-- https://medium.com/graphql-mastery/graphql-quick-tip-how-to-pass-variables-into-a-mutation-in-graphiql-23ecff4add57
-
-- https://mp.weixin.qq.com/s/YjLuf3Oebmw0Zo6Xx-0qKg
-
-- https://mp.weixin.qq.com/s/8FgP1LeO6eDd8xuIMGzIIA

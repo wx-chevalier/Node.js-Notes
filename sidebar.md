@@ -96,10 +96,14 @@
     - [BFF](/全栈与%20GraphQL/BFF/README.md)
       - [BFF 与 BIF](/全栈与%20GraphQL/BFF/BFF%20与%20BIF.md)
     - [GraphQL](/全栈与%20GraphQL/GraphQL/README.md)
-      - [SDL](/全栈与%20GraphQL/GraphQL/SDL.md)
-      - [TypeGraphQL](/全栈与%20GraphQL/GraphQL/TypeGraphQL.md)
-      - [客户端接入](/全栈与%20GraphQL/GraphQL/客户端接入.md)
-      - [服务端开发](/全栈与%20GraphQL/GraphQL/服务端开发.md)
+      - Schema
+        - [SDL](/全栈与%20GraphQL/GraphQL/Schema/SDL.md)
+        - [TypeGraphQL](/全栈与%20GraphQL/GraphQL/Schema/TypeGraphQL.md)
+        - [快速开始](/全栈与%20GraphQL/GraphQL/Schema/快速开始.md)
+      - 客户端
+        - [客户端接入](/全栈与%20GraphQL/GraphQL/客户端/客户端接入.md)
+      - 服务端
+        - [服务端开发](/全栈与%20GraphQL/GraphQL/服务端/服务端开发.md)
     - [前后端分离](/全栈与%20GraphQL/前后端分离/README.md)
       
     - [同构应用](/全栈与%20GraphQL/同构应用/README.md)
