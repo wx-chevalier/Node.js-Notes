@@ -41,7 +41,7 @@ Node.js 为前端开发者开拓了更广阔的应用空间，前端和后端开
 
 # Nav | 导读
 
-本书的精排目录导航版请参考 [https://ng-tech.icu/Node-Series](https://ng-tech.icu/Node-Series)，更多 Web 开发相关请参阅《[现代 Web 全栈开发与工程架构](https://ngte-web.gitbook.io/i/)》。
+本书的精排目录导航版请参考 [https://ng-tech.icu/Node-Series](https://ng-tech.icu/Node-Series)，更多 Web 开发相关请参阅[《现代 Web 全栈开发与工程架构](https://ngte-web.gitbook.io/i/)》。
 
 # About | 关于
 
