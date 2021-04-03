@@ -9,16 +9,6 @@ Yarn 是一个新的快速安全可信赖的可以替代 NPM 的依赖管理工�
 - **Offline:** Yarn 允许离线安装某些依赖，这点对于 CI 系统特别适用。CI 系统就不需要保证有稳定的网络连接，特别是在有墙的地方。
 - **Speed:** Yarn 采用了新的算法来保证速度，[比 NPM 快到 2~7 倍](https://yarnpkg.com/en/compare)，同时也允许使用离线包的方式本地安装依赖。
 
-## Reference
-
-- [yarn-a-new-package-manager-for-javascript](https://code.facebook.com/posts/1840075619545360/yarn-a-new-package-manager-for-javascript/)
-
-- [yarn-a-new-program-for-installing-javascript-dependencies](https://blog.getexponent.com/yarn-a-new-program-for-installing-javascript-dependencies-44961956e728#.qf8fmeg4g)
-
-- [npm-vs-yarn-cheat-sheet](https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc#.dcd5qeolm)
-
-- [Yarn 能帮你解决的五件事](http://www.tuicool.com/articles/Yn2iU3Q)
-
 # Quick Start
 
 直接使用 `npm i yarn -g` 全局安装即可，这是笔者本机的运行结果图，速度与稳定性确实都快了不少：
@@ -108,3 +98,13 @@ $ yarn workspace x add y@^1.0.0
 # 在所有子项目下运行 Build 命令
 $ yarn workspaces run build
 ```
+
+# Links
+
+- [yarn-a-new-package-manager-for-javascript](https://code.facebook.com/posts/1840075619545360/yarn-a-new-package-manager-for-javascript/)
+
+- [yarn-a-new-program-for-installing-javascript-dependencies](https://blog.getexponent.com/yarn-a-new-program-for-installing-javascript-dependencies-44961956e728#.qf8fmeg4g)
+
+- [npm-vs-yarn-cheat-sheet](https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc#.dcd5qeolm)
+
+- [Yarn 能帮你解决的五件事](http://www.tuicool.com/articles/Yn2iU3Q)
