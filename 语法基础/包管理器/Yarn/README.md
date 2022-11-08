@@ -106,5 +106,3 @@ $ yarn workspaces run build
 - [yarn-a-new-program-for-installing-javascript-dependencies](https://blog.getexponent.com/yarn-a-new-program-for-installing-javascript-dependencies-44961956e728#.qf8fmeg4g)
 
 - [npm-vs-yarn-cheat-sheet](https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc#.dcd5qeolm)
-
-- [Yarn 能帮你解决的五件事](http://www.tuicool.com/articles/Yn2iU3Q)
