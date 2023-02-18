@@ -15,7 +15,7 @@
 
   <p align="center">
     <br />
-    <a href="https://wx-chevalier.github.io/Node-Series"><strong>在线阅读 >> </strong></a>
+    <a href="https://ng-tech.icu/books/Node-Series"><strong>在线阅读 >> </strong></a>
     <br />
     <br />
     <a href="https://github.com/wx-chevalier/Node-Series">速览手册</a>
@@ -41,7 +41,7 @@ Node.js 为前端开发者开拓了更广阔的应用空间，前端和后端开
 
 # Nav | 关联导航
 
-本书的精排目录导航版请参考 [https://wx-chevalier.github.io/Node-Series](https://wx-chevalier.github.io/Node-Series)，更多 Web 开发相关请参阅[《现代 Web 全栈开发与工程架构](https://ngte-web.gitbook.io/i/)》。
+本书的精排目录导航版请参考 [https://ng-tech.icu/books/Node-Series](https://ng-tech.icu/books/Node-Series)，更多 Web 开发相关请参阅[《现代 Web 全栈开发与工程架构](https://ngte-web.gitbook.io/i/)》。
 
 # About | 关于
 
@@ -59,9 +59,9 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Copyright & More | 延伸阅读
 
-笔者所有文章遵循[知识共享 署名 - 非商业性使用 - 禁止演绎 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)，欢迎转载，尊重版权。您还可以前往 [NGTE Books](https://wx-chevalier.github.io/books/) 主页浏览包含知识体系、编程语言、软件工程、模式与架构、Web 与大前端、服务端开发实践与工程架构、分布式基础架构、人工智能与深度学习、产品运营与创业等多类目的书籍列表：
+笔者所有文章遵循[知识共享 署名 - 非商业性使用 - 禁止演绎 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)，欢迎转载，尊重版权。您还可以前往 [NGTE Books](https://ng-tech.icu/books-gallery/) 主页浏览包含知识体系、编程语言、软件工程、模式与架构、Web 与大前端、服务端开发实践与工程架构、分布式基础架构、人工智能与深度学习、产品运营与创业等多类目的书籍列表：
 
-[![NGTE Books](https://s2.ax1x.com/2020/01/18/19uXtI.png)](https://wx-chevalier.github.io/books/)
+[![NGTE Books](https://s2.ax1x.com/2020/01/18/19uXtI.png)](https://ng-tech.icu/books-gallery/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
