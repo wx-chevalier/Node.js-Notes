@@ -7,7 +7,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/wx-chevalier/Node-Series">
+  <a href="https://github.com/wx-chevalier/Node-Notes">
     <img src="https://s2.ax1x.com/2020/01/15/lLHrpq.png" alt="Logo" width="150" height="80">
   </a>
 
@@ -15,14 +15,14 @@
 
   <p align="center">
     <br />
-    <a href="https://ng-tech.icu/books/Node-Series"><strong>在线阅读 >> </strong></a>
+    <a href="https://ng-tech.icu/books/Node-Notes"><strong>在线阅读 >> </strong></a>
     <br />
     <br />
-    <a href="https://github.com/wx-chevalier/Node-Series">速览手册</a>
+    <a href="https://github.com/wx-chevalier/Node-Notes">速览手册</a>
     ·
-    <a href="https://github.com/wx-chevalier/Node-Series/issues">Report Bug</a>
+    <a href="https://github.com/wx-chevalier/Node-Notes/issues">Report Bug</a>
     ·
-    <a href="https://github.com/wx-chevalier/Node-Series/issues">参考资料</a>
+    <a href="https://github.com/wx-chevalier/Node-Notes/issues">参考资料</a>
 
   </p>
 </p>
@@ -41,7 +41,7 @@ Node.js 为前端开发者开拓了更广阔的应用空间，前端和后端开
 
 # Nav | 关联导航
 
-本书的精排目录导航版请参考 [https://ng-tech.icu/books/Node-Series](https://ng-tech.icu/books/Node-Series)，更多 Web 开发相关请参阅[《现代 Web 全栈开发与工程架构](https://ngte-web.gitbook.io/i/)》。
+本书的精排目录导航版请参考 [https://ng-tech.icu/books/Node-Notes](https://ng-tech.icu/books/Node-Notes)，更多 Web 开发相关请参阅[《现代 Web 全栈开发与工程架构](https://ngte-web.gitbook.io/i/)》。
 
 # About | 关于
 
@@ -66,13 +66,13 @@ Contributions are what make the open source community such an amazing place to b
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/wx-chevalier/Node-Series.svg?style=flat-square
-[contributors-url]: https://github.com/wx-chevalier/Node-Series/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/wx-chevalier/Node-Series.svg?style=flat-square
-[forks-url]: https://github.com/wx-chevalier/Node-Series/network/members
-[stars-shield]: https://img.shields.io/github/stars/wx-chevalier/Node-Series.svg?style=flat-square
-[stars-url]: https://github.com/wx-chevalier/Node-Series/stargazers
-[issues-shield]: https://img.shields.io/github/issues/wx-chevalier/Node-Series.svg?style=flat-square
-[issues-url]: https://github.com/wx-chevalier/Node-Series/issues
-[license-shield]: https://img.shields.io/github/license/wx-chevalier/Node-Series.svg?style=flat-square
-[license-url]: https://github.com/wx-chevalier/Node-Series/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/wx-chevalier/Node-Notes.svg?style=flat-square
+[contributors-url]: https://github.com/wx-chevalier/Node-Notes/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/wx-chevalier/Node-Notes.svg?style=flat-square
+[forks-url]: https://github.com/wx-chevalier/Node-Notes/network/members
+[stars-shield]: https://img.shields.io/github/stars/wx-chevalier/Node-Notes.svg?style=flat-square
+[stars-url]: https://github.com/wx-chevalier/Node-Notes/stargazers
+[issues-shield]: https://img.shields.io/github/issues/wx-chevalier/Node-Notes.svg?style=flat-square
+[issues-url]: https://github.com/wx-chevalier/Node-Notes/issues
+[license-shield]: https://img.shields.io/github/license/wx-chevalier/Node-Notes.svg?style=flat-square
+[license-url]: https://github.com/wx-chevalier/Node-Notes/blob/master/LICENSE.txt
