@@ -61,27 +61,29 @@
       - [3.2.3 路由与请求处理](/03.框架使用/Express/路由与请求处理.md)
     - [3.3 Koa [1]](/03.框架使用/Koa/README.md)
       - [3.3.1 中间件](/03.框架使用/Koa/中间件.md)
-    - 3.4 数据库 [3]
-      - [3.4.1 Knex](/03.框架使用/数据库/Knex/README.md)
+    - 3.4 数据库 [4]
+      - 3.4.1 99.参考资料 [1]
+        - [3.4.1.1 Is ORM still an anti pattern?](/03.框架使用/数据库/99.参考资料/2023-Is%20ORM%20still%20an%20anti%20pattern?.md)
+      - [3.4.2 Knex](/03.框架使用/数据库/Knex/README.md)
         
-      - [3.4.2 Sequelize](/03.框架使用/数据库/Sequelize/README.md)
+      - [3.4.3 Sequelize](/03.框架使用/数据库/Sequelize/README.md)
         
-      - [3.4.3 TypeORM [3]](/03.框架使用/数据库/TypeORM/README.md)
-        - [3.4.3.1 实体 [3]](/03.框架使用/数据库/TypeORM/实体/README.md)
-          - [3.4.3.1.1 关系](/03.框架使用/数据库/TypeORM/实体/关系.md)
-          - [3.4.3.1.2 监听器和订阅者](/03.框架使用/数据库/TypeORM/实体/监听器和订阅者.md)
-          - [3.4.3.1.3 索引](/03.框架使用/数据库/TypeORM/实体/索引.md)
-        - 3.4.3.2 数据操作 [5]
-          - [3.4.3.2.1 Entity Manager](/03.框架使用/数据库/TypeORM/数据操作/Entity%20Manager.md)
-          - [3.4.3.2.2 Query Builder](/03.框架使用/数据库/TypeORM/数据操作/Query%20Builder.md)
-          - [3.4.3.2.3 Repository](/03.框架使用/数据库/TypeORM/数据操作/Repository.md)
-          - [3.4.3.2.4 事务](/03.框架使用/数据库/TypeORM/数据操作/事务.md)
-          - [3.4.3.2.5 数据查询](/03.框架使用/数据库/TypeORM/数据操作/数据查询.md)
-        - 3.4.3.3 配置 [4]
-          - [3.4.3.3.1 Connection](/03.框架使用/数据库/TypeORM/配置/Connection.md)
-          - [3.4.3.3.2 快速开始](/03.框架使用/数据库/TypeORM/配置/快速开始.md)
-          - [3.4.3.3.3 日志](/03.框架使用/数据库/TypeORM/配置/日志.md)
-          - [3.4.3.3.4 缓存](/03.框架使用/数据库/TypeORM/配置/缓存.md)
+      - [3.4.4 TypeORM [3]](/03.框架使用/数据库/TypeORM/README.md)
+        - [3.4.4.1 实体 [3]](/03.框架使用/数据库/TypeORM/实体/README.md)
+          - [3.4.4.1.1 关系](/03.框架使用/数据库/TypeORM/实体/关系.md)
+          - [3.4.4.1.2 监听器和订阅者](/03.框架使用/数据库/TypeORM/实体/监听器和订阅者.md)
+          - [3.4.4.1.3 索引](/03.框架使用/数据库/TypeORM/实体/索引.md)
+        - 3.4.4.2 数据操作 [5]
+          - [3.4.4.2.1 Entity Manager](/03.框架使用/数据库/TypeORM/数据操作/Entity%20Manager.md)
+          - [3.4.4.2.2 Query Builder](/03.框架使用/数据库/TypeORM/数据操作/Query%20Builder.md)
+          - [3.4.4.2.3 Repository](/03.框架使用/数据库/TypeORM/数据操作/Repository.md)
+          - [3.4.4.2.4 事务](/03.框架使用/数据库/TypeORM/数据操作/事务.md)
+          - [3.4.4.2.5 数据查询](/03.框架使用/数据库/TypeORM/数据操作/数据查询.md)
+        - 3.4.4.3 配置 [4]
+          - [3.4.4.3.1 Connection](/03.框架使用/数据库/TypeORM/配置/Connection.md)
+          - [3.4.4.3.2 快速开始](/03.框架使用/数据库/TypeORM/配置/快速开始.md)
+          - [3.4.4.3.3 日志](/03.框架使用/数据库/TypeORM/配置/日志.md)
+          - [3.4.4.3.4 缓存](/03.框架使用/数据库/TypeORM/配置/缓存.md)
   - [4 04.全栈与 GraphQL [5]](/04.全栈与%20GraphQL/README.md)
     - [4.1 BFF [1]](/04.全栈与%20GraphQL/BFF/README.md)
       - [4.1.1 BFF 与 BIF](/04.全栈与%20GraphQL/BFF/BFF%20与%20BIF.md)
