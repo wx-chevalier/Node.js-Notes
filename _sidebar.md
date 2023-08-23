@@ -62,8 +62,8 @@
     - [3.3 Koa [1]](/03.框架使用/Koa/README.md)
       - [3.3.1 中间件](/03.框架使用/Koa/中间件.md)
     - 3.4 数据库 [4]
-      - 3.4.1 99.参考资料 [1]
-        - [3.4.1.1 Is ORM still an anti pattern?](/03.框架使用/数据库/99.参考资料/2023-Is%20ORM%20still%20an%20anti%20pattern?.md)
+      - 3.4.1 99~参考资料 [1]
+        - [3.4.1.1 Is ORM still an anti pattern?](/03.框架使用/数据库/99~参考资料/2023-Is%20ORM%20still%20an%20anti%20pattern?.md)
       - [3.4.2 Knex](/03.框架使用/数据库/Knex/README.md)
         
       - [3.4.3 Sequelize](/03.框架使用/数据库/Sequelize/README.md)
@@ -123,8 +123,8 @@
       - [5.5.1 Redis](/10.Nest/数据访问/Redis.md)
       - [5.5.2 TypeORM](/10.Nest/数据访问/TypeORM.md)
   - [6 20.Deno [4]](/20.Deno/README.md)
-    - 6.1 99.参考资料 [1]
-      - [6.1.1 Roll your own JavaScript runtime](/20.Deno/99.参考资料/2022-Roll%20your%20own%20JavaScript%20runtime.md)
+    - 6.1 99~参考资料 [1]
+      - [6.1.1 Roll your own JavaScript runtime](/20.Deno/99~参考资料/2022-Roll%20your%20own%20JavaScript%20runtime.md)
     - [6.2 Hello World](/20.Deno/Hello%20World.md)
     - [6.3 特性与优缺点](/20.Deno/特性与优缺点.md)
     - [6.4 调试](/20.Deno/调试.md)
