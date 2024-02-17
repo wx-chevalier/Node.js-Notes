@@ -53,7 +53,7 @@
         - 2.4.4.2 数据操作 [5]
           - [2.4.4.2.1 Entity Manager](/02~工程实践/数据库/TypeORM/数据操作/Entity%20Manager.md)
           - [2.4.4.2.2 Query Builder](/02~工程实践/数据库/TypeORM/数据操作/Query%20Builder.md)
-          - [2.4.4.2.3 Repository](/02~工程实践/数据库/TypeORM/数据操作/Repository.md)
+          - [2.4.4.2.3 TypreORM Repository](/02~工程实践/数据库/TypeORM/数据操作/TypreORM%20Repository.md)
           - [2.4.4.2.4 事务](/02~工程实践/数据库/TypeORM/数据操作/事务.md)
           - [2.4.4.2.5 数据查询](/02~工程实践/数据库/TypeORM/数据操作/数据查询.md)
         - 2.4.4.3 配置 [4]
