@@ -1,6 +1,6 @@
 # Is ORM still an 'anti pattern'?
 
-![ORM are criticized for the wrong reason](https://assets.ng-tech.icu/item/248826663-8b0cd2b4-2e46-4ab4-ba0b-b64c6c5bd567.png)
+![ORM are criticized for the wrong reason](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/248826663-8b0cd2b4-2e46-4ab4-ba0b-b64c6c5bd567.png)
 
 ## Introduction
 
@@ -22,7 +22,7 @@ ORMs produce objects. (_Duh!_ That’s what the _O_ stands for.) Objects are lik
 
 Technically, ORMs can mimic undirected graphs by enforcing that pointers are bidirectional. Realistically, though, this isn’t trivial to set up; many developers end up with a `User` object missing its `Posts` array **or** the `Posts` array entities lacking a backreference to the same `User` object (but potentially a clone).
 
-![img](https://assets.ng-tech.icu/item/248820778-7e224034-9732-4b46-a695-93fb27c64669.png)
+![img](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/248820778-7e224034-9732-4b46-a695-93fb27c64669.png)
 
 > ORMs and relational databases operate under two different paradigms. For instance, an ORM might return a user’s posts as an array, but not include backreferences to the user (as Author) for each post.
 
