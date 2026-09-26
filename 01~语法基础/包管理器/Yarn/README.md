@@ -44,8 +44,7 @@ Workspaces 的使用方式也非常简单，在 package.json 文件中添加以�
   "private": true,
   "workspaces": ["workspace-a", "workspace-b"]
 }
-```
-
+```javascript
 请注意，`private: true` 是必需的！工作区本身不应当被发布出去，所以我们添加了这个安全措施以确保它不会被意外暴露。创建这个文件后，再创建两个名为 `workspace-a` 和 `workspace-b` 的子文件夹。在每个文件夹里面，创建一个具有以下内容的 `package. json` 文件：
 
 - workspace-a/package.json:
@@ -59,8 +58,7 @@ Workspaces 的使用方式也非常简单，在 package.json 文件中添加以�
     "cross-env": "5.0.5"
   }
 }
-```
-
+```javascript
 - workspace-b/package.json:
 
 ```json
@@ -73,11 +71,10 @@ Workspaces 的使用方式也非常简单，在 package.json 文件中添加以�
     "workspace-a": "1.0.0"
   }
 }
-```
-
+```javascript
 最后，在某个地方运行 `yarn install`，当然最好是在工作区根目录里面。如果一切正常，你现在应该有一个类似这样的文件层次结构：
 
-```
+```javascript
 /package.json
 /yarn.lock
 
@@ -87,8 +84,7 @@ Workspaces 的使用方式也非常简单，在 package.json 文件中添加以�
 
 /workspace-a/package.json
 /workspace-b/package.json
-```
-
+```javascript
 Yarn 的工作区是诸如 Lerna 这样的工具可以（并且正在）利用的底层机制。它们将永远不会试图提供像 Lerna 那么高级的功能，但通过实现该解决方案的核心逻辑和 Yarn 内部的连接步骤，我们希望能够提供新的用法并提高性能。
 
 ```sh
@@ -97,8 +93,7 @@ $ yarn workspace x add y@^1.0.0
 
 # 在所有子项目下运行 Build 命令
 $ yarn workspaces run build
-```
-
+```javascript
 # Links
 
 - [yarn-a-new-package-manager-for-javascript](https://code.facebook.com/posts/1840075619545360/yarn-a-new-package-manager-for-javascript/)

@@ -33,8 +33,7 @@ const root = {
 graphql(schema, "{ hello }", root).then(response => {
   console.log(response);
 });
-```
-
+```javascript
 另一种常见的 Schema 的表示方式即是 GraphQL.js 的 GraphQLSchema 对象，该类型对象才能够被服务端或者客户端的解析代码所使用：
 
 ```js
@@ -64,8 +63,7 @@ const queryType = new GraphQLObjectType({
 const schema = new GraphQLSchema({
   query: queryType
 });
-```
-
+```javascript
 ## Apollo GraphQL
 
 Apollo GraphQL 为我们提供了全栈式的 GraphQL 开发工具与良好的体验，也可以看做 GraphQL 标准的一种实现方式。[graphql-tag](https://github.com/apollographql/graphql-tag) 提供了 GraphQL 的查询辅助工具，能够将某个查询转化为 GraphQL 的 AST 表示：
@@ -92,8 +90,7 @@ console.log(query);
 //       "kind": "OperationDefinition",
 //       "operation": "query",
 //       "name": null,
-```
-
+```javascript
 [graphql-tools](https://github.com/apollographql/graphql-tools) 则提供了完整的 Schema 生成与合并工具，支持 Resolver, Interface, Union, Scalar:
 
 ```js
@@ -116,8 +113,7 @@ const graphqlSchemaObj = makeExecutableSchema({
 
 // 转化为 SDL
 console.log(printSchema(graphqlSchemaObj));
-```
-
+```javascript
 # 类型基础
 
 ## 类型声明
@@ -128,14 +124,12 @@ GraphQL 中使用 `type` 关键字来指定类型名，类型还可以继承一�
 type Post implements Item {
   # ...
 }
-```
-
+```javascript
 某个属性域包含了名称与类型，该类型可以是内建或自定义的标量类型，也可以是 Schema 中自定义的类型；对于非空的属性域可以使用 `!` 来标记：
 
 ```gql
 age: Int!
-```
-
+```javascript
 较为全面的类型定义范例如下：
 
 ```gql
@@ -153,8 +147,7 @@ type Blog {
   description: String
   posts: [Post!]! @relation(name: "Posts")
 }
-```
-
+```javascript
 ## 内省查询结果
 
 GraphQL 的 API 是被要求自我注释的，每个 GraphQL API 应可以返回其结构，这就是所谓的内省(Introspection)，往往是 `__schema` 端口的返回结果：
@@ -171,8 +164,7 @@ GraphQL 的 API 是被要求自我注释的，每个 GraphQL API 应可以返回
     }
   }
 }
-```
-
+```javascript
 我们可以利用 graphql 库提供的 introspectionQuery 查询来进行获取：
 
 ```js
@@ -183,8 +175,7 @@ fetch("https://1jzxrj179.lp.gql.zone/graphql", {
   body: JSON.stringify({ query: introspectionQuery })
 });
 // ...
-```
-
+```javascript
 同样的，我们可以将内省的查询结果转化为 GraphQL Schema 对象：
 
 ```js
@@ -193,8 +184,7 @@ const fs = require("fs");
 
 const introspectionSchemaResult = JSON.parse(fs.readFileSync("result.json"));
 const graphqlSchemaObj = buildClientSchema(introspectionSchemaResult);
-```
-
+```javascript
 # Scalar Type | 标量类型
 
 GraphQL 内建提供了以下标量类型：
@@ -212,8 +202,7 @@ enum Category {
   PROGRAMMING_LANGUAGES
   API_DESIGN
 }
-```
-
+```javascript
 ## 自定义标量类型
 
 ```js
@@ -240,16 +229,14 @@ const jsSchema = makeExecutableSchema({
   typeDefs: schemaString,
   resolvers: resolveFunctions
 });
-```
-
+```javascript
 # Object Type | 对象类型
 
 数组则是用大括号表示：
 
 ```gql
 names: [String!]
-```
-
+```javascript
 ## Type Modifier | 类型修饰
 
 ## Interface | 接口
@@ -262,8 +249,7 @@ names: [String!]
 
 ```gql
 name: String! @defaultValue(value: "new blogpost")
-```
-
+```javascript
 GraphQL 标准中规范了指令的定义与使用的方式：
 
 ```gql
@@ -275,8 +261,7 @@ type ExampleType {
   newField: String
   oldField: String @deprecated(reason: "Use `newField`.")
 }
-```
-
+```javascript
 在实际开发中，我们可以使用 graphql-tools 提供的 SchemaDirectiveVisitor 来快速开发自定义指令，譬如我们需要某个提示属性域被废弃的 @deprecated 指令：
 
 ```js
@@ -293,8 +278,7 @@ class DeprecatedDirective extends SchemaDirectiveVisitor {
     value.deprecationReason = this.args.reason;
   }
 }
-```
-
+```javascript
 然后在声明 Schema
 
 # Fragments
@@ -314,8 +298,7 @@ fragment authorInfo as Author {
 	id
 	name
 }
-```
-
+```javascript
 # Query & Mutation | 查询与更改
 
 Query 与 Mutation 是 GraphQL 的默认入口之一，GraphQL Schema 中内置的 ROOT 包含了以下几种：
@@ -330,8 +313,7 @@ schema {
   mutation: Mutation
   subscription: Subscription
 }
-```
-
+```javascript
 ## Arguments | 参数
 
 ## Mutation

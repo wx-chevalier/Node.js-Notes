@@ -54,7 +54,7 @@ This is **_mostly_** false. ORMs are far more efficient than most programmers be
 
 For instance, take a look at this poorly optimized TypeORM code that uses JavaScript to expand data entries:
 
-```
+```javascript
 const authorRepository = connection.getRepository(Author);
 const postRepository = connection.getRepository(Post);
 
@@ -71,11 +71,10 @@ for (let i = 0; i < authors.length; i++) {
     await postRepository.save(posts[j]);
   }
 }
-```
-
+```javascript
 Instead, developers should use TypeORM’s built-in features that construct a single query:
 
-```
+```javascript
 const postRepository = connection.getRepository(Post);
 
 await postRepository
@@ -84,11 +83,10 @@ await postRepository
   .set({ status: 'archived' })
   .where("authorId IN (SELECT id FROM author WHERE company = :company)", { company: 'Hooli' })
   .execute();
-```
-
+```javascript
 A great example of this is the aforementioned Lago billing SQL refactor. Our issue with Active Record was visibility-related (discussed more in detail below). There was no performance difference between our ORM and raw SQL query analogs. Because we heavily used Active Record’s data union features, our query was optimized as is:
 
-```
+```javascript
 InvoiceSubscription
       .joins('INNER JOIN subscriptions AS sub ON invoice_subscriptions.subscription_id = sub.id')
       .joins('INNER JOIN customers AS cus ON sub.customer_id = cus.id')
@@ -102,11 +100,10 @@ InvoiceSubscription
       .group(:subscription_id)
       .select('invoice_subscriptions.subscription_id, COUNT(invoice_subscriptions.id) AS invoiced_count')
       .to_sql
-```
-
+```javascript
 which was replaced by this raw SQL rewrite:
 
-```
+```javascript
 SELECT
           invoice_subscriptions.subscription_id,
           COUNT(invoice_subscriptions.id) AS invoiced_count
@@ -130,15 +127,14 @@ SELECT
             )#{at_time_zone(customer: 'cus', organization: 'org')}
           ) = DATE(:today#{at_time_zone(customer: 'cus', organization: 'org')})
         GROUP BY invoice_subscriptions.subscription_id
-```
-
+```javascript
 Now don’t get me wrong, ORMs are not **_as_** efficient as raw SQL queries. They are often a bit more inefficient, and in some choice cases, very inefficient.
 
 The **first** issue is that ORMs sometimes incur massive computational overhead when converting queries into objects (TypeORM is a particular offender of this).
 
 The **second** issue is that ORMs sometimes make multiple roundtrips to a database by looping through a one-to-many or many-to-many relationship. This is known as the N+1 problem (1 original query + N subqueries). For instance, the following Prisma query will make a new database request for every single comment!
 
-```
+```javascript
 {
 	users(take: 3) {
 		id
@@ -153,8 +149,7 @@ The **second** issue is that ORMs sometimes make multiple roundtrips to a databa
 		}
 	}
 }
-```
-
+```javascript
 N + 1 is a common problem that ORMs struggle with. However, it can often be handled by using [data loaders](https://www.prisma.io/docs/guides/performance-and-optimization/query-optimization-performance) that collapse queries into two queries instead of N + 1. Accordingly, like most other common ORM “issues”, N+1 scenarios can often be avoided by fully leveraging an ORMs feature set.
 
 ### Visibility

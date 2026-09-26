@@ -16,8 +16,7 @@ monorepo 是把多个项目的所有代码放到一个 git 仓库中进行管理
 ├── pnpm-workspace.yaml
 ├── readme.md
 └── tsconfig.json
-```
-
+```javascript
 packages 文件夹中的就是原本每个独立的项目(下文称之为 package )了，现在放在一起用 workspace 去管理。最外层路径称之为 root。在 root package.json 中的 deps 是所有子 package 共用的。
 
 > 源码参考《[web-examples/pnpm](https://github.com/wx-chevalier/web-examples?q=)》

@@ -56,8 +56,7 @@ passport.use(
     }
   )
 );
-```
-
+```javascript
 如果使用 MySQL、PostgreSQL 等关系型数据库，我们也可以进行
 
 ```js
@@ -76,8 +75,7 @@ userSchema.methods.validatePassword = function (rawPwd) {
       : Promise.reject(new Error(lang.t("auth:errors:invalidlogin")));
   });
 };
-```
-
+```javascript
 注意，这里的字段名称应该是页面表单提交的名称，即 `req.body.xxx`，而不是 user 数据库中的字段名称。
 
 将 options 作为 LocalStrategy 第一个参数传入即可。
@@ -98,8 +96,6 @@ const passport = require('passport')
 , AnonymousStrategy = require('passport-anonymous').Strategy;
 
 ...
-
-
 
 // 匿名登录认证作为本地认证的 fallback
 
@@ -124,8 +120,7 @@ res.json({ msg: "用户以匿名方式登录"});
 }
 
 });
-```
-
+```javascript
 # 框架集成
 
 ## 登录认证
@@ -141,13 +136,9 @@ const flash = require('express-flash');
 
 const passport = require('passport');
 
-
-
 ...
 
 // 在使用 app.use 之前需要进行 passport 的配置
-
-
 
 app.use(cookieParser());
 
@@ -159,17 +150,12 @@ app.use(passport.initialize());
 
 app.use(passport.session());
 
-
-
 ...
-
-
 
 const ExpressBrute = require('express-brute')
 
 const ExpressBruteMongooseStore = require('express-brute-mongoose')
-```
-
+```javascript
 ```js
 app.post(
   "/login",
@@ -188,16 +174,11 @@ app.post(
     res.redirect("/users/" + req.user.username);
   }
 );
-```
-
+```javascript
 ```js
 // controllers/auth.js
 
-
-
 ...
-
-
 
 // 使用 ExpressBruteMongooseStore 来存放爆破信息，也可以使用 MemoryStore 将信息存放于内存
 
@@ -232,8 +213,6 @@ res.redirect('/login')
 }
 
 })
-
-
 
 // 处理来自表单提交中包含的登录信息
 
@@ -305,15 +284,11 @@ return res.redirect('/login')
 
 })
 
-
-
 ...
-```
-
+```javascript
 ```js
 const router = express.Router();
-```
-
+```javascript
 [koa-passport](https://github.com/rkusa/koa-passport)
 
 ```js
@@ -336,8 +311,7 @@ const passport = require("koa-passport");
 app.use(passport.initialize());
 
 app.use(passport.session());
-```
-
+```javascript
 ## 访问校验
 
 注意上面的代码里有个 req.logIn()，它不是 http 模块原生的方法，也不是 express 中的方法，而是 passport 加上的，passport 扩展了 HTTP request，添加了四种方法。
@@ -372,8 +346,7 @@ passport.deserializeUser(function (id, done) {
       done(err, null);
     });
 });
-```
-
+```javascript
 这里第一段代码是将环境中的 user.id 序列化到 session 中，即 sessionID，同时它将作为凭证存储在用户 cookie 中。
 
 第二段代码是从 session 反序列化，参数为用户提交的 sessionID，若存在则从数据库中查询 user 并存储与 req.user 中。
@@ -414,50 +387,45 @@ module.exports = (req, res, next) => {
 
   return next();
 };
-```
-
+```javascript
 ```js
 app.get("/logout", function (req, res) {
   req.logout();
 
   res.redirect("/");
 });
-```
-
+```javascript
 # OAuth
 
-```
-* OAuth 验证策略概述
+```javascript
+- OAuth 验证策略概述
 
 *
 
-* 当用户点击 “ 使用 XX 登录 ” 链接
+- 当用户点击 “ 使用 XX 登录 ” 链接
 
-* * 若用户已登录
+- * 若用户已登录
 
-* * 检查该用户是否已绑定 XX 服务
+- * 检查该用户是否已绑定 XX 服务
 
-*     - 如果已绑定，返回错误(不允许账户合并)
+-     - 如果已绑定，返回错误(不允许账户合并)
 
-*     - 否则开始验证流程，为该用户绑定XX服务
+-     - 否则开始验证流程，为该用户绑定XX服务
 
-* * 用户未登录
+- * 用户未登录
 
-* * 检查是否老用户
+- * 检查是否老用户
 
-*     - 如果是老用户，则登录
+-     - 如果是老用户，则登录
 
-*     - 否则检查OAuth返回profile中的email，是否在用户数据库中存在
+-     - 否则检查OAuth返回profile中的email，是否在用户数据库中存在
 
-*       - 如果存在，返回错误信息
+-       - 如果存在，返回错误信息
 
-*       - 否则创建一个新账号
-```
-
+-       - 否则创建一个新账号
+```javascript
 ```js
 const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
-
-
 
 passport.use('provider', new OAuth2Strategy({
 
@@ -484,8 +452,7 @@ done(err, user);
 }
 
 ));
-```
-
+```javascript
 refreshToken 是重新获取 access token 的方法，因为 access token 是有使用期限的，到期了必须让用户重新授权才行，现在有了 refresh token，你可以让应用定期的用它去更新 access token，这样第三方服务就可以一直绑定了。不过这个方法并不是每个服务商都提供，注意看服务商的文档。
 
 ```js
@@ -518,8 +485,7 @@ passport.use(
     }
   )
 );
-```
-
+```javascript
 ```js
 router.get(
   "/login/ms",
@@ -616,8 +582,7 @@ router.get(
     successRedirect: "/",
   })
 );
-```
-
+```javascript
 [Passport-GitHub strategy.js](https://github.com/jaredhanson/passport-github/blob/master/lib/strategy.js)
 
 passport 以插件的形式支持了很多第三方网站和服务的 OAuth 验证，但并不是所有的，如果你需要在 app 中用到第三方的服务，但它们没有对应的 passport 插件，你可以用通用的 OAuth 或其他验证方法来进行验证，也可以将它们封装成 passport-x 插件。

@@ -6,8 +6,7 @@ readableStream.on("data", function (chunk) {
 });
 
 writableStream.end();
-```
-
+```javascript
 当 `end()` 被调用时，所有数据会被写入，然后流会触发一个 `finish` 事件。注意在调用 `end()` 之后，你就不能再往可写流中写入数据了。
 
 ```js
@@ -21,8 +20,7 @@ const outStream = new Writable({
 });
 
 process.stdin.pipe(outStream);
-```
-
+```javascript
 Writable Stream 中同样包含一些与 Readable Stream 相关的重要事件：
 
 - error: 在写入或链接发生错误时触发

@@ -23,8 +23,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
   ]
 })
 export class AppModule {}
-```
-
+```javascript
 forRoot() 方法从 TypeORM 包接受与 createConnection() 相同的配置对象。另外，我们可以在项目根目录中创建 ormconfig.json 文件，而不是将配置对象传递给 forRoot()。
 
 ```json
@@ -38,8 +37,7 @@ forRoot() 方法从 TypeORM 包接受与 createConnection() 相同的配置对�
   "entities": ["dist/**/*.entity{.ts,.js}"],
   "synchronize": true
 }
-```
-
+```javascript
 然后在 forRoot 中不传入任何参数：
 
 ```ts
@@ -50,8 +48,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
   imports: [TypeOrmModule.forRoot()]
 })
 export class AppModule {}
-```
-
+```javascript
 TyperOrm 也支持异步配置：
 
 ```ts
@@ -69,8 +66,7 @@ TypeOrmModule.forRootAsync({
   }),
   inject: [ConfigService]
 });
-```
-
+```javascript
 # 数据查询
 
 完成此操作后，TypeORM Connection 和 EntityManager 对象将可用于在整个项目中注入（而无需导入任何模块），例如：
@@ -84,8 +80,7 @@ import { Connection } from "typeorm";
 export class AppModule {
   constructor(private readonly connection: Connection) {}
 }
-```
-
+```javascript
 ## Repository
 
 TypeORM 支持存储库设计模式，因此每个实体都有自己的存储库。这些存储库可以从数据库连接中获取，首先在 Module 中需要声明依赖：
@@ -97,8 +92,7 @@ TypeORM 支持存储库设计模式，因此每个实体都有自己的存储库
   controllers: [PhotoController]
 })
 export class PhotoModule {}
-```
-
+```javascript
 然后在 Service 中引入 Repository：
 
 ```ts
@@ -113,8 +107,7 @@ export class PhotoService {
     return this.photoRepository.find();
   }
 }
-```
-
+```javascript
 如果要在导入 TypeOrmModule.forFeature 的模块之外使用存储库，则需要重新导出由其生成的提供程序。您可以通过导出整个模块来做到这一点，如下所示：
 
 ```ts
@@ -123,8 +116,7 @@ export class PhotoService {
   exports: [TypeOrmModule]
 })
 export class PhotoModule {}
-```
-
+```javascript
 # 多数据库
 
 一些项目需要多个数据库连接。这也可以通过该模块来实现。要使用多个连接，请首先创建连接。在这种情况下，连接命名成为强制性的。假设您有一个 Person 实体和一个 Album 实体，它们分别存储在各自的数据库中。
@@ -161,8 +153,7 @@ const defaultOptions = {
   ]
 })
 export class AppModule {}
-```
-
+```javascript
 此时，您已将每个 Photo，Person 和 Album 实体注册为各自的连接。使用此设置，您必须告诉 TypeOrmModule.forFeature()函数和@InjectRepository()装饰器应使用哪个连接。如果未传递任何连接名称，则使用默认连接。
 
 ```ts
@@ -174,8 +165,7 @@ export class AppModule {}
   ]
 })
 export class AppModule {}
-```
-
+```javascript
 然后可以注入 Connection 或 EntityManager：
 
 ```ts
@@ -188,8 +178,7 @@ export class PersonService {
     private readonly entityManager: EntityManager
   ) {}
 }
-```
-
+```javascript
 # Testing
 
 在对应用程序进行单元测试时，我们通常希望避免建立数据库连接，使我们的测试套件保持独立，并尽可能快地执行它们。但是我们的类可能取决于从连接实例中拉出的存储库。我们该如何处理？解决方案是创建模拟存储库。为此，我们设置了自定义提供程序。每个注册的存储库都由 `<EntityName>Repository` 标记自动表示，其中 EntityName 是您的实体类的名称。
@@ -205,8 +194,7 @@ export class PersonService {
   ]
 })
 export class PhotoModule {}
-```
-
+```javascript
 现在，替代的嘲讽存储库将用作 PhotoRepository。每当任何类使用@InjectRepository() 装饰器要求提供 PhotoRepository 时，Nest 都会使用已注册的 mockRepository 对象。
 
 # 自定义 Repository
@@ -216,8 +204,7 @@ TypeORM 提供了一种称为自定义存储库的功能。自定义存储库允
 ```ts
 @EntityRepository(Author)
 export class AuthorRepository extends Repository<Author> {}
-```
-
+```javascript
 创建类后，下一步就是将实例化责任委托给 Nest。为此，我们必须将 AuthororRepository 类传递给 TypeOrm.forFeature()方法。
 
 ```ts
@@ -227,8 +214,7 @@ export class AuthorRepository extends Repository<Author> {}
   providers: [AuthorService]
 })
 export class AuthorModule {}
-```
-
+```javascript
 然后用如下方式注入：
 
 ```ts
@@ -236,4 +222,4 @@ export class AuthorModule {}
 export class AuthorService {
   constructor(private readonly authorRepository: AuthorRepository) {}
 }
-```
+```javascript
