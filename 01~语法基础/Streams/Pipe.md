@@ -8,7 +8,7 @@ const outputFile = fs.createWriteStream("REALLY_BIG_FILE_DEST.x");
 
 // 当建立管道时，才发生了流的流动
 inputFile.pipe(outputFile);
-```javascript
+```
 多个管道顺序调用，即是构建了链接(Chaining):
 
 ```js
@@ -17,7 +17,7 @@ const zlib = require("zlib");
 fs.createReadStream("input.txt.gz")
   .pipe(zlib.createGunzip())
   .pipe(fs.createWriteStream("output.txt"));
-```javascript
+```
 管道也常用于 Web 服务器中的文件处理，以 Egg.js 中的应用为例，我们可以从 Context 中获取到文件流并将其传入到可写文件流中：
 
 > 📎 完整代码参考 [Backend Boilerplate/egg](https://parg.co/A24)
@@ -45,7 +45,7 @@ try {
   throw err;
 }
 ...
-```javascript
+```
 参照[分布式系统导论](https://parg.co/Uxo)，可知在典型的流处理场景中，我们不可以避免地要处理所谓的背压(Backpressure)问题。无论是 Writable Stream 还是 Readable Stream，实际上都是将数据存储在内部的 Buffer 中，可以通过 `writable.writableBuffer` 或者 `readable.readableBuffer` 来读取。当要处理的数据存储超过了 `highWaterMark` 或者当前写入流处于繁忙状态时，write 函数都会返回 `false`。`pipe` 函数即会自动地帮我们启用背压机制：
 
 ![image](https://user-images.githubusercontent.com/5803001/45255876-99c94f80-b3c0-11e8-93f2-3ae0474426fa.png)
@@ -86,4 +86,4 @@ try {
                                            +------------+  add chunk to queue  |
                                            |            <--^-------------------<
                                            +============+
-```javascript
+```

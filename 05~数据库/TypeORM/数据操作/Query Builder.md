@@ -8,7 +8,7 @@ const firstUser = await connection
   .createQueryBuilder("user")
   .where("user.id = :id", { id: 1 })
   .getOne();
-```javascript
+```
 它将生成以下 SQL 查询：
 
 ```sql
@@ -18,7 +18,7 @@ SELECT
     user.lastName as userLastName
 FROM users user
 WHERE user.id = 1
-```javascript
+```
 然后返回一个 `User` 实例:
 
 ```s
@@ -27,7 +27,7 @@ User {
     firstName: "Timber",
     lastName: "Saw"
 }
-```javascript
+```
 # 创建与操作
 
 ## 创建 QueryBuilder
@@ -45,7 +45,7 @@ const user = await getConnection()
   .from(User, "user")
   .where("user.id = :id", { id: 1 })
   .getOne();
-```javascript
+```
 - 使用 entity manager:
 
 ```typescript
@@ -55,7 +55,7 @@ const user = await getManager()
   .createQueryBuilder(User, "user")
   .where("user.id = :id", { id: 1 })
   .getOne();
-```javascript
+```
 - 使用 repository:
 
 ```typescript
@@ -65,7 +65,7 @@ const user = await getRepository(User)
   .createQueryBuilder("user")
   .where("user.id = :id", { id: 1 })
   .getOne();
-```javascript
+```
 有 5 种不同的`QueryBuilder`类型可用：
 
 - `SelectQueryBuilder` - 用于构建和执行`SELECT`查询例如：
@@ -79,7 +79,7 @@ const user = await getConnection()
   .from(User, "user")
   .where("user.id = :id", { id: 1 })
   .getOne();
-```javascript
+```
 - `InsertQueryBuilder` - 用于构建和执行 `INSERT` 查询例如：
 
 ```typescript
@@ -94,7 +94,7 @@ await getConnection()
     { firstName: "Phantom", lastName: "Lancer" }
   ])
   .execute();
-```javascript
+```
 - `UpdateQueryBuilder` - 用于构建和执行 `UPDATE` 查询例如：
 
 ```typescript
@@ -106,7 +106,7 @@ await getConnection()
   .set({ firstName: "Timber", lastName: "Saw" })
   .where("id = :id", { id: 1 })
   .execute();
-```javascript
+```
 - `DeleteQueryBuilder` - 用于构建和执行`DELETE`查询例如：
 
 ```typescript
@@ -118,7 +118,7 @@ await getConnection()
   .from(User)
   .where("id = :id", { id: 1 })
   .execute();
-```javascript
+```
 - `RelationQueryBuilder` - 用于构建和执行特定于关系的操作[TBD]。
 
 你可以在其中切换任何不同类型的查询构建器，一旦执行，则将获得一个新的查询构建器实例（与所有其他方法不同）。
@@ -139,7 +139,7 @@ await getConnection()
     { firstName: "Phantom", lastName: "Lancer" }
   ])
   .execute();
-```javascript
+```
 就性能而言，这是向数据库中插入实体的最有效方法你也可以通过这种方式执行批量插入。在某些情况下需要执行函数 SQL 查询时：
 
 ```typescript
@@ -154,7 +154,7 @@ await getConnection()
     lastName: () => "CONCAT('S', 'A', 'W')"
   })
   .execute();
-```javascript
+```
 此语法不会对值进行转义，你需要自己处理转义。
 
 ## 更新
@@ -170,12 +170,12 @@ await getConnection()
   .set({ firstName: "Timber", lastName: "Saw" })
   .where("id = :id", { id: 1 })
   .execute();
-```javascript
+```
 就性能而言，这是更新数据库中的实体的最有效方法。在某些情况下需要执行函数 SQL 查询时：
 
 ```javascript
 typescript import {getConnection} from "typeorm"; await getConnection() .createQueryBuilder() .update(User) .set({ firstName: "Timber", lastName: "Saw", age: () => "'age' + 1" }) .where("id = :id", { id: 1 }) .execute();
-```javascript
+```
 此语法不会对值进行转义，你需要自己处理转义。
 
 ## 删除
@@ -191,5 +191,5 @@ await getConnection()
   .from(User)
   .where("id = :id", { id: 1 })
   .execute();
-```javascript
+```
 就性能而言，这是删除数据库中的实体的最有效方法。

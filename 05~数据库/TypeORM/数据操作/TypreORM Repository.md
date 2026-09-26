@@ -10,7 +10,7 @@ const userRepository = getRepository(User); // 你也可以通过getConnection()
 const user = await userRepository.findOne(1);
 user.name = "Umed";
 await userRepository.save(user);
-```javascript
+```
 有三种类型的存储库：
 
 - `Repository`：任何实体的常规存储库。
@@ -27,7 +27,7 @@ await userRepository.save(user);
 
 ```typescript
 userRepository.find({ select: ["firstName", "lastName"] });
-```javascript
+```
 - `relations` - 关系需要加载主体。也可以加载子关系（join 和 leftJoinAndSelect 的简写）
 
 ```typescript
@@ -35,7 +35,7 @@ userRepository.find({ relations: ["profile", "photos", "videos"] });
 userRepository.find({
   relations: ["profile", "photos", "videos", "videos.video_attributes"],
 });
-```javascript
+```
 - `join` - 需要为实体执行联接，扩展版对的"relations"。
 
 ```typescript
@@ -49,17 +49,17 @@ userRepository.find({
     },
   },
 });
-```javascript
+```
 - `where` -查询实体的简单条件。
 
 ```typescript
 userRepository.find({ where: { firstName: "Timber", lastName: "Saw" } });
-```javascript
+```
 查询嵌入实体列应该根据定义它的层次结构来完成。例：
 
 ```typescript
 userRepository.find({ where: { name: { first: "Timber", last: "Saw" } } });
-```javascript
+```
 使用 OR 运算符查询：
 
 ```typescript
@@ -69,12 +69,12 @@ userRepository.find({
     { firstName: "Stan", lastName: "Lee" },
   ],
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "user" WHERE ("firstName" = 'Timber' AND "lastName" = 'Saw') OR ("firstName" = 'Stan' AND "lastName" = 'Lee')
-```javascript
+```
 - `order` - 选择排序
 
 ```typescript
@@ -84,7 +84,7 @@ userRepository.find({
     id: "DESC",
   },
 });
-```javascript
+```
 返回多个实体的 `find` 方法（`find`，`findAndCount`，`findByIds`），同时也接受以下选项：
 
 - `skip` - 偏移（分页）
@@ -93,14 +93,14 @@ userRepository.find({
 userRepository.find({
   skip: 5,
 });
-```javascript
+```
 - `take` - limit (分页) - 得到的最大实体数。
 
 ```typescript
 userRepository.find({
   take: 10,
 });
-```javascript
+```
 如果你正在使用带有 MSSQL 的 typeorm，并且想要使用`take`或`limit`，你必须正确使用 order，否则将会收到以下错误：`'FETCH语句中NEXT选项的使用无效。'`
 
 ```typescript
@@ -111,33 +111,33 @@ userRepository.find({
   skip: 0,
   take: 10,
 });
-```javascript
+```
 - `cache` - 启用或禁用查询结果缓存。有关更多信息和选项，请参见[caching](https://typeorm.io/#/caching/)。
 
 ```typescript
 userRepository.find({
   cache: true,
 });
-```javascript
+```
 - `lock` - 启用锁查询。只能在 `findOne` 方法中使用。`lock` 是一个对象，可以定义为：
 
 ```ts
 { mode: "optimistic", version: number|Date }
-```javascript
+```
 或者
 
 ```ts
 {
   mode: "pessimistic_read" | "pessimistic_write" | "dirty_read";
 }
-```javascript
+```
 例如:
 
 ```typescript
 userRepository.findOne(1, {
   lock: { mode: "optimistic", version: 1 },
 });
-```javascript
+```
 find 选项的完整示例：
 
 ```typescript
@@ -156,7 +156,7 @@ userRepository.find({
   take: 10,
   cache: true,
 });
-```javascript
+```
 ## 进阶选项
 
 TypeORM 提供了许多内置运算符，可用于创建更复杂的查询：
@@ -169,12 +169,12 @@ import { Not } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   title: Not("About #1"),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE "title" != 'About #1'
-```javascript
+```
 - `LessThan`
 
 ```ts
@@ -183,12 +183,12 @@ import { LessThan } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   likes: LessThan(10),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE "likes" < 10
-```javascript
+```
 - `LessThanOrEqual`
 
 ```ts
@@ -196,12 +196,12 @@ import { LessThanOrEqual } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   likes: LessThanOrEqual(10),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE "likes" <= 10
-```javascript
+```
 - `MoreThan`
 
 ```ts
@@ -210,12 +210,12 @@ import { MoreThan } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   likes: MoreThan(10),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE "likes" > 10
-```javascript
+```
 - `MoreThanOrEqual`
 
 ```ts
@@ -223,12 +223,12 @@ import { MoreThanOrEqual } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   likes: MoreThanOrEqual(10),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE "likes" >= 10
-```javascript
+```
 - `Equal`
 
 ```ts
@@ -237,12 +237,12 @@ import { Equal } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   title: Equal("About #2"),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE "title" = 'About #2'
-```javascript
+```
 - `Like`
 
 ```ts
@@ -251,12 +251,12 @@ import { Like } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   title: Like("%out #%"),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE "title" LIKE '%out #%'
-```javascript
+```
 - `Between`
 
 ```ts
@@ -265,12 +265,12 @@ import { Between } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   likes: Between(1, 10),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE "likes" BETWEEN 1 AND 10
-```javascript
+```
 - `In`
 
 ```ts
@@ -279,12 +279,12 @@ import { In } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   title: In(["About #2", "About #3"]),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE "title" IN ('About #2','About #3')
-```javascript
+```
 - `Any`
 
 ```ts
@@ -293,12 +293,12 @@ import { Any } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   title: Any(["About #2", "About #3"]),
 });
-```javascript
+```
 将执行以下查询：(Postgres notation):
 
 ```sql
 SELECT * FROM "post" WHERE "title" = ANY(['About #2','About #3'])
-```javascript
+```
 - `IsNull`
 
 ```ts
@@ -307,12 +307,12 @@ import { IsNull } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   title: IsNull(),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE "title" IS NULL
-```javascript
+```
 - `Raw`
 
 ```ts
@@ -321,12 +321,12 @@ import { Raw } from "typeorm";
 const loadedPosts = await connection.getRepository(Post).find({
   likes: Raw("1 + likes = 4"),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE 1 + "likes" = 4
-```javascript
+```
 > 注意：注意`Raw`操作符。它应该从提供的表达式执行纯 SQL，而不能包含用户输入，否则将导致 SQL 注入。
 
 你还可以将这些运算符与`Not`运算符组合使用：
@@ -338,12 +338,12 @@ const loadedPosts = await connection.getRepository(Post).find({
   likes: Not(MoreThan(10)),
   title: Not(Equal("About #2")),
 });
-```javascript
+```
 将执行以下查询：
 
 ```sql
 SELECT * FROM "post" WHERE NOT("likes" > 10) AND NOT("title" = 'About #2')
-```javascript
+```
 # 自定义存储库
 
 你可以创建一个自定义存储库，其中应包含使用数据库的方法。通常为单个实体创建自定义存储库，并包含其特定查询。比如，假设我们想要一个名为 findByName（firstName：string，lastName：string）的方法，它将按给定的 first 和 last names 搜索用户。这个方法的最好的地方是在 Repository，所以我们可以这样称呼它 userRepository.findByName（...）。你也可以使用自定义存储库来实现此目的。有几种方法可以创建自定义存储库。
@@ -367,7 +367,7 @@ export class UserRepository extends Repository<User> {
     return this.findOne({ firstName, lastName });
   }
 }
-```javascript
+```
 然后你可以这样使用它：
 
 ```typescript
@@ -381,7 +381,7 @@ user.lastName = "Saw";
 await userRepository.save(user);
 
 const timber = await userRepository.findByName("Timber", "Saw");
-```javascript
+```
 如你所见，你也可以使用`getCustomRepository` 获取 repository，并且可以访问在其中创建的任何方法以及标准实体 repository 中的任何方法。
 
 ## 扩展了标准 AbstractRepository 的自定义存储库
@@ -405,7 +405,7 @@ export class UserRepository extends AbstractRepository<User> {
     return this.repository.findOne({ firstName, lastName });
   }
 }
-```javascript
+```
 然后你可以这样使用它：
 
 ```typescript
@@ -415,7 +415,7 @@ import { UserRepository } from "./repository/UserRepository";
 const userRepository = getCustomRepository(UserRepository); // or connection.getCustomRepository or manager.getCustomRepository()
 await userRepository.createAndSave("Timber", "Saw");
 const timber = await userRepository.findByName("Timber", "Saw");
-```javascript
+```
 这种类型的存储库与前一个存储库之间的区别在于它没有公开`Repository`所具有的所有方法`AbstractRepository`没有任何公共方法，它只有受保护的方法，比如`manager`和`repository`，你可以在自己的公共方法中使用它们如果你不希望将标准`Repository`所有方法公开给 public，那么扩展`AbstractRepository`将非常有用。
 
 ## 没有扩展的自定义存储库
@@ -441,7 +441,7 @@ export class UserRepository {
     return this.manager.findOne(User, { firstName, lastName });
   }
 }
-```javascript
+```
 然后你可以这样使用它：
 
 ```typescript
@@ -451,7 +451,7 @@ import { UserRepository } from "./repository/UserRepository";
 const userRepository = getCustomRepository(UserRepository); // 或者 connection.getCustomRepository 或者 manager.getCustomRepository()
 await userRepository.createAndSave("Timber", "Saw");
 const timber = await userRepository.findByName("Timber", "Saw");
-```javascript
+```
 这种类型的存储库不会扩展任何东西，你只需要定义一个必须接受`EntityManager`的构造函数然后在存储库方法中的任何位置使用它此外，这种类型的存储库不绑定到特定实体，因此你可以使用其中的多个实体进行操作。
 
 ## 在事务中使用自定义存储库或为什么自定义存储库不能是服务
@@ -471,4 +471,4 @@ await connection.transaction(async (manager) => {
   await userRepository.createAndSave("Timber", "Saw");
   const timber = await userRepository.findByName("Timber", "Saw");
 });
-```javascript
+```

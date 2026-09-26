@@ -38,7 +38,7 @@ function onRequest(req, res) {
 
   res.stream.respondWithFD(file.fileDescriptor, file.headers);
 }
-```javascript
+```
 ```html
 <html>
 <body>
@@ -47,5 +47,5 @@ function onRequest(req, res) {
   <script src="bundle1.js"/></script>
   <script src="bundle2.js"/></script>
 </html>
-```javascript
+```
 [http2-push-example](https://github.com/RisingStack/http2-push-example)

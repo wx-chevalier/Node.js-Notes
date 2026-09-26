@@ -10,19 +10,19 @@ const entityManager = getManager(); // 你也可以通过 getConnection().manage
 const user = await entityManager.findOne(User, 1);
 user.name = "Umed";
 await entityManager.save(user);
-```javascript
+```
 # API
 
 - `connection` - 使用`EntityManager`连接。
 
 ```typescript
 const connection = manager.connection;
-```javascript
+```
 - `queryRunner` - `EntityManager`使用的查询运行器。仅在 EntityManager 的事务实例中使用。
 
 ```typescript
 const queryRunner = manager.queryRunner;
-```javascript
+```
 - `transaction` - 提供在单个数据库事务中执行多个数据库请求的事务更多关于 [事务](https://typeorm.io/#/transactions/).
 
 ```typescript
@@ -34,12 +34,12 @@ await manager.transaction(async manager => {
   // 它是一个使用此事务的EntityManager的特殊实例。
   // 在这里处理一些操作
 });
-```javascript
+```
 - `query` - 执行原始 SQL 查询。
 
 ```typescript
 const rawData = await manager.query(`SELECT * FROM USERS`);
-```javascript
+```
 - `createQueryBuilder` - 创建用于构建 SQL 查询的 query builder 更多关于 [QueryBuilder](https://typeorm.io/#/select-query-builder/).
 
 ```typescript
@@ -49,19 +49,19 @@ const users = await manager
   .from(User, "user")
   .where("user.name = :name", { name: "John" })
   .getMany();
-```javascript
+```
 - `hasId` - 检查给定实体是否已定义主列属性。
 
 ```typescript
 if (manager.hasId(user)) {
   // ... 做一些需要的操作
 }
-```javascript
+```
 - `getId` - 获取给定实体的主列属性值如果实体具有复合主键，则返回的值将是具有主列的名称和值的对象。
 
 ```typescript
 const userId = manager.getId(user); // userId === 1
-```javascript
+```
 - `create` - 创建`User`的新实例接受具有用户属性的对象文字，该用户属性将写入新创建的用户对象。（可选）
 
 ```typescript
@@ -71,13 +71,13 @@ const user = manager.create(User, {
   firstName: "Timber",
   lastName: "Saw"
 }); // 和 const user = new User(); user.firstName = "Timber"; user.lastName = "Saw"; 一样
-```javascript
+```
 - `merge` - 将多个实体合并为一个实体。
 
 ```typescript
 const user = new User();
 manager.merge(User, user, { firstName: "Timber" }, { lastName: "Saw" }); // 和user.firstName = "Timber"; user.lastName = "Saw";一样
-```javascript
+```
 - `preload` - 从给定的普通 javascript 对象创建一个新实体如果实体已存在于数据库中，则它将加载它（以及与之相关的所有内容），将所有值替换为给定对象中的新值，并返回新实体新的实体实际上是从与新对象代替所有属性的数据库实体加载。
 
 ```typescript
@@ -91,19 +91,19 @@ const partialUser = {
 const user = await manager.preload(User, partialUser);
 // user将包含partialUser中具有partialUser属性值的所有缺失数据：
 // { id: 1, firstName: "Rizzrak", lastName: "Saw", profile: { id: 1, ... } }
-```javascript
+```
 - `save` - 保存给定实体或实体数组如果实体已存在于数据库中，则会更新如果该实体尚未存在于数据库中，则将其插入它将所有给定实体保存在单个事务中（在实体管理器而不是事务性的情况下）还支持部分更新，因为跳过了所有未定义的属性为了使值为`NULL`，你必须手动将该属性设置为等于`null`。
 
 ```typescript
 await manager.save(user);
 await manager.save([category1, category2, category3]);
-```javascript
+```
 - `remove` - 删除给定的实体或实体数组它删除单个事务中的所有给定实体（在实体的情况下，管理器不是事务性的）。
 
 ```typescript
 await manager.remove(user);
 await manager.remove([category1, category2, category3]);
-```javascript
+```
 - `insert` - 插入新实体或实体数组。
 
 ```typescript
@@ -122,7 +122,7 @@ await manager.insert(User, [
     lastName: "Rak"
   }
 ]);
-```javascript
+```
 - `update` - 通过给定的更新选项或实体 ID 部分更新实体。
 
 ```typescript
@@ -131,85 +131,85 @@ await manager.update(User, { firstName: "Timber" }, { firstName: "Rizzrak" });
 
 await manager.update(User, 1, { firstName: "Rizzrak" });
 // 执行 UPDATE user SET firstName = Rizzrak WHERE id = 1
-```javascript
+```
 - `delete` - 根据实体 id 或 ids 或其他给定条件删除实体：
 
 ```typescript
 await manager.delete(User, 1);
 await manager.delete(User, [1, 2, 3]);
 await manager.delete(User, { firstName: "Timber" });
-```javascript
+```
 - `count` - 符合指定条件的实体数量。对分页很有用。
 
 ```typescript
 const count = await manager.count(User, { firstName: "Timber" });
-```javascript
+```
 - `increment` - 增加符合条件的实体某些列值。
 
 ```typescript
 await manager.increment(User, { firstName: "Timber" }, "age", 3);
-```javascript
+```
 - `decrement` - 减少符合条件的实体某些列值。
 
 ```typescript
 await manager.count(User, { firstName: "Timber" }, "age", 3);
-```javascript
+```
 - `find` - 查找指定条件的实体。
 
 ```typescript
 const timbers = await manager.find(User, { firstName: "Timber" });
-```javascript
+```
 - `findAndCount` - 查找指定条件的实体还会计算与给定条件匹配的所有实体数量，但忽略分页设置（`from`和`take` 选项）。
 
 ```typescript
 const [timbers, timbersCount] = await manager.findAndCount(User, {
   firstName: "Timber"
 });
-```javascript
+```
 - `findByIds` - 按 ID 查找多个实体。
 
 ```typescript
 const users = await manager.findByIds(User, [1, 2, 3]);
-```javascript
+```
 - `findOne` - 查找匹配某些 ID 或查找选项的第一个实体。
 
 ```typescript
 const user = await manager.findOne(User, 1);
 const timber = await manager.findOne(User, { firstName: "Timber" });
-```javascript
+```
 - `findOneOrFail` - 查找匹配某些 ID 或查找选项的第一个实体如果没有匹配，则 Rejects 一个 promise。
 
 ```typescript
 const user = await manager.findOneOrFail(User, 1);
 const timber = await manager.findOneOrFail(User, { firstName: "Timber" });
-```javascript
+```
 - `clear` - 清除给定表中的所有数据(truncates/drops)。
 
 ```typescript
 await manager.clear(User);
-```javascript
+```
 - `getRepository` - 获取`Repository`以对特定实体执行操作更过关于 [Repositories](https://typeorm.io/#/working-with-entity-manager/).
 
 ```typescript
 const userRepository = manager.getRepository(User);
-```javascript
+```
 - `getTreeRepository` - 获取`TreeRepository`以对特定实体执行操作更多关于[Repositories](https://typeorm.io/#/working-with-entity-manager/).
 
 ```typescript
 const categoryRepository = manager.getTreeRepository(Category);
-```javascript
+```
 - `getMongoRepository` - 获取`MongoRepository`以对特定实体执行操作更多关于[MongoDB](https://typeorm.io/#/mongodb/).
 
 ```typescript
 const userRepository = manager.getMongoRepository(User);
-```javascript
+```
 - `getCustomRepository` - 获取自定义实体库更多关于 [Custom repositories](https://typeorm.io/#/working-with-entity-manager/).
 
 ```typescript
 const myUserRepository = manager.getCustomRepository(UserRepository);
-```javascript
+```
 - `release` - 释放实体管理器的查询运行器。仅在手动创建和管理查询运行器时使用。
 
 ```typescript
 await manager.release();
-```javascript
+```

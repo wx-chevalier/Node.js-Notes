@@ -19,7 +19,7 @@ export class User {
   @Column()
   isActive: boolean;
 }
-```javascript
+```
 这将创建以下数据库表：
 
 ```s
@@ -31,7 +31,7 @@ export class User {
 | lastName    | varchar(255) |                            |
 | isActive    | boolean      |                            |
 +-------------+--------------+----------------------------+
-```javascript
+```
 基本实体由列和关系组成。每个实体必须有一个主列（如果使用 MongoDB，则为 ObjectId 列）。每个实体都必须在连接选项中注册：
 
 ```ts
@@ -46,7 +46,7 @@ const connection: Connection = await createConnection({
   // 指定包含所有实体的整个目录，该目录下所有实体都将被加载
   // entities: ["entity/*.js"]
 });
-```javascript
+```
 如果要为 User 实体使用替代表名，可以在 @Entity 中指定：`@Entity（“my_users”`）。如果要为应用程序中的所有数据库表设置基本前缀，可以在连接选项中指定 entityPrefix。
 
 # 实体列
@@ -74,7 +74,7 @@ export class User {
   @PrimaryColumn()
   lastName: string;
 }
-```javascript
+```
 当您使用 save 保存实体时，它总是先尝试使用给定的实体 ID（或 ids）在数据库中查找实体。如果找到 id/ids，则将更新数据库中的这一行。如果没有包含 id/ids 的行，则会插入一个新行。要通过 id 查找实体，可以使用 `manager.findOne`或 repository.findOne。例：
 
 ```ts
@@ -90,7 +90,7 @@ const user = await connection.manager.findOne(User, {
 const user = await connection
   .getRepository(User)
   .findOne({ firstName: "Timber", lastName: "Saw" });
-```javascript
+```
 ## 列类型
 
 TypeORM 支持所有最常用的数据库支持的列类型。列类型是特定于数据库类型的 - 这为数据库架构提供了更大的灵活性。你可以将列类型指定为@ Column 的第一个参数 或者在@Column 的列选项中指定，例如：
@@ -103,7 +103,7 @@ TypeORM 支持所有最常用的数据库支持的列类型。列类型是特定
 @Column("varchar", { length: 200 })
 
 @Column({ type: "int", length: 200 })
-```javascript
+```
 - mysql/mariadb 的列类型: int, tinyint, smallint, mediumint, bigint, float, double, dec, decimal, numeric, date, datetime, timestamp, time, year, char, varchar, nvarchar, text, tinytext, mediumtext, blob, longtext, tinyblob, mediumblob, longblob, enum, json, binary, geometry, point, linestring, polygon, multipoint, multilinestring, multipolygon, geometrycollection
 
 有几种特殊的列类型可以使用：
@@ -155,7 +155,7 @@ export class User {
     })
     role: UserRoleType
 }
-```javascript
+```
 ## simple-array 的列类型
 
 有一种称为 simple-array 的特殊列类型，它可以将原始数组值存储在单个字符串列中。所有值都以逗号分隔。例如：
@@ -172,7 +172,7 @@ export class User {
 
 const user = new User();
 user.names = ["Alexander", "Alex", "Sasha", "Shurik"];
-```javascript
+```
 存储在单个数据库列中的 Alexander，Alex，Sasha，Shurik 值。当你从数据库加载数据时，name 将作为 names 数组返回，就像之前存储它们一样。
 
 ## simple-json 列类型
@@ -190,7 +190,7 @@ export class User {
 }
 const user = new User();
 user.profile = { name: "John", nickname: "Malkovich" };
-```javascript
+```
 存储在单个数据库列中的`{“name”：“John”，“nickname”：“Malkovich”}`值 当你从数据库加载数据时，将通过 JSON.parse 返回 object/array/primitive。
 
 # 嵌入式实体
@@ -207,7 +207,7 @@ export class Name {
   @Column()
   last: string;
 }
-```javascript
+```
 然后"connect"实体中的这些列：
 
 ```ts
@@ -225,7 +225,7 @@ export class User {
   @Column()
   isActive: boolean;
 }
-```javascript
+```
 Name 实体中定义的所有列将合并为 user，employee 和 student：
 
 ```s
@@ -237,7 +237,7 @@ Name 实体中定义的所有列将合并为 user，employee 和 student：
 | nameLast    | varchar(255) |                            |
 | isActive    | boolean      |                            |
 +-------------+--------------+----------------------------+
-```javascript
+```
 # 实体继承
 
 你可以使用实体继承模式减少代码中的重复最简单和最有效的是具体的表继承。所有这些实体都有共同的列：`id`，`title`，`description`为了减少重复并产生更好的抽象，我们可以为它们创建一个名为 `Content` 的基类：
@@ -259,4 +259,4 @@ export class Photo extends Content {
   @Column()
   size: string;
 }
-```javascript
+```

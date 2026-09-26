@@ -15,7 +15,7 @@ $ git clone https://github.com/nestjs/typescript-starter.git project
 $ cd project
 $ npm install
 $ npm run start
-```javascript
+```
 典型的 Nest 项目会包含如下的模块：
 
 ```s
@@ -25,7 +25,7 @@ src
 ├── app.module.ts
 ├── app.service.ts
 └── main.ts
-```javascript
+```
 ```ts
 import { NestFactory } from "@nestjs/core";
 
@@ -38,7 +38,7 @@ async function bootstrap() {
 }
 
 bootstrap();
-```javascript
+```
 ## 控制器
 
 ```ts
@@ -54,7 +54,7 @@ import { HelloController } from "../controller/HelloController";
   controllers: [HelloController],
 })
 export class ApplicationModule {}
-```javascript
+```
 ```ts
 // HelloController.ts
 
@@ -67,7 +67,7 @@ export class HelloController {
     return "Next.js Boilerplate @ 王下邀月熊";
   }
 }
-```javascript
+```
 ```ts
 import { Controller, Get, Post } from "@nestjs/common";
 
@@ -83,7 +83,7 @@ export class CatsController {
     return [];
   }
 }
-```javascript
+```
 ## 平台
 
 Nest 的目标是一个平台无关的框架。这个意思就是说 Nest 本身并不造某个细分领域的轮子，他只构建一套构架体系，然后把一些好用的库或者平台融合进来。所以 Nest 可以衔接任何 HTTP 框架，默认支持 express 和 fastify 两个 web 框架。
@@ -96,7 +96,7 @@ Nest 的目标是一个平台无关的框架。这个意思就是说 Nest 本身
 
 ```ts
 const app = await NestFactory.create<NestExpressApplication>(ApplicationModule);
-```javascript
+```
 不过一般情况下不需要指定这个类型。
 
 # Links

@@ -16,19 +16,19 @@ Knex.js 是用于关系数据库（包括 PostgreSQL，MySQL，SQLite3 和 Oracl
 $ nodejs -v
 v9.11.2
 
-```javascript
+```
 我们使用 Node 版本 9.11.2。
 
 ```js
 $ npm init
 
-```javascript
+```
 我们启动一个新的 Node 应用。
 
 ```js
 $ npm i knex mysql2
 
-```javascript
+```
 我们安装 Knex.js 和 MySQL 驱动程序有两个驱动程序可用：`mysql`和`mysql2`; 我们选择了后者。
 
 ## Knex.js 的数据库版本
@@ -60,7 +60,7 @@ knex
   .finally(() => {
     knex.destroy();
   });
-```javascript
+```
 该示例返回 MySQL 的版本。
 
 ```js
@@ -73,12 +73,12 @@ const options = {
     database: "mydb"
   }
 };
-```javascript
+```
 这些是 MySQL 的连接选项。
 
 ```js
 const knex = require("knex")(options);
-```javascript
+```
 我们加载 Knex.js 并提供连接选项。
 
 ```js
@@ -92,14 +92,14 @@ knex
   .finally(() => {
     knex.destroy();
   });
-```javascript
+```
 使用`raw()`函数，我们执行 SQL 语句如果语句运行正常，我们将输出输出否则，我们记录错误最后，我们使用`destroy()`关闭数据库连接。
 
 ```js
 $ node version.js
 TextRow { 'VERSION()': '5.7.22-0ubuntu0.16.04.1' }
 
-```javascript
+```
 这是输出。
 
 ## Knex.js 创建表
@@ -135,7 +135,7 @@ knex.schema
   .finally(() => {
     knex.destroy();
   });
-```javascript
+```
 使用 Knex.js 模式`createTable()`函数创建一个新表我们定义模式以包含三列：id，名称和价格。
 
 ## Knex.js 插入数据
@@ -178,7 +178,7 @@ knex("cars")
   .finally(() => {
     knex.destroy();
   });
-```javascript
+```
 我们用`knex('cars)`选择`cars`表，并用`insert()`方法插入八行。
 
 ## Knex.js 选择所有行
@@ -215,7 +215,7 @@ knex
   .finally(() => {
     knex.destroy();
   });
-```javascript
+```
 我们使用`select()`功能选择所有行这次我们选择了具有`from()`功能的表格然后，我们遍历返回的行数组并打印三个字段。
 
 ```js
@@ -229,7 +229,7 @@ $ node select_cars.js
 7 Hummer 41400
 8 Volkswagen 21600
 
-```javascript
+```
 这是输出。
 
 ## Knex.js 使用`WHERE`限制输出
@@ -262,7 +262,7 @@ knex
   .finally(() => {
     knex.destroy();
   });
-```javascript
+```
 该示例返回价格高于 50000 的汽车。
 
 ```js
@@ -270,7 +270,7 @@ const options = {
   client: "mysql2",
   connection: "mysql://user12:s$cret@localhost:3306/mydb"
 };
-```javascript
+```
 这次，我们提供了一个连接 URL。
 
 ```js
@@ -278,7 +278,7 @@ knex
   .from("cars")
   .select("name", "price")
   .where("price", ">", "50000");
-```javascript
+```
 我们用`select()`选择了两列，并在`where()`函数中添加了`WHERE`子句。
 
 ```js
@@ -287,7 +287,7 @@ Audi 52642
 Mercedes 57127
 Bentley 350000
 
-```javascript
+```
 三辆汽车比 5 万辆贵。
 
 ## Knex.js 排序行
@@ -325,7 +325,7 @@ knex
   .finally(() => {
     knex.destroy();
   });
-```javascript
+```
 该示例选择所有汽车，然后按价格降序对其进行排序。
 
 ```js
@@ -339,5 +339,5 @@ Volkswagen 21600
 Citroen 21000
 Skoda 9000
 
-```javascript
+```
 这是输出。

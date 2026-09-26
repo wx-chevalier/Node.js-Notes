@@ -9,7 +9,7 @@ Duplex Stream 可以看做读写流的聚合体，其包含了相互独立、拥
             You           ------------------|
                     Write ----->               External Sink
                           ------------------|
-```javascript
+```
 我们可以使用 Duplex 模拟简单的套接字操作：
 
 ```js
@@ -49,7 +49,7 @@ d.on("end", function () {
   console.log("Message Complete");
 });
 d.write("....");
-```javascript
+```
 在开发中我们也经常需要直接将某个可读流输出到可写流中，此时也可以在其中引入 PassThrough，以方便进行额外地监听：
 
 ```js
@@ -66,7 +66,7 @@ duplexStream.pipe(process.stdout);
 
 // 监听数据，这里直接输出的是 Buffer<Buffer 60 60  ... >
 duplexStream.on("data", console.log);
-```javascript
+```
 # Transform Stream
 
 Transform Stream 则是实现了 `_transform` 方法的 Duplex Stream，其在兼具读写功能的同时，还可以对流进行转换:
@@ -76,7 +76,7 @@ Transform Stream 则是实现了 `_transform` 方法的 Duplex Stream，其在�
                            --------------|--------------
             You     Write  ---->                   ---->  Read  You
                            --------------|--------------
-```javascript
+```
 这里我们实现简单的 Base64 编码器:
 
 ```js
@@ -94,4 +94,4 @@ Base64Encoder.prototype._transform = function (data, encoding, callback) {
 };
 
 process.stdin.pipe(new Base64Encoder()).pipe(process.stdout);
-```javascript
+```

@@ -15,7 +15,7 @@ const logger = createLogger({
   ),
   transports: [new transports.Console()]
 });
-```javascript
+```
 # 生产环境配置
 
 ```ts
@@ -75,4 +75,4 @@ logger.add(
     format: format.combine(errorStackFormat(), ...formats, format.colorize())
   })
 );
-```javascript
+```
