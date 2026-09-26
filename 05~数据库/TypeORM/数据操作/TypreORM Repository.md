@@ -408,10 +408,6 @@ export class UserRepository extends AbstractRepository<User> {
 ```
 然后你可以这样使用它：
 
-```typescript
-import { getCustomRepository } from "typeorm";
-import { UserRepository } from "./repository/UserRepository";
-
 const userRepository = getCustomRepository(UserRepository); // or connection.getCustomRepository or manager.getCustomRepository()
 await userRepository.createAndSave("Timber", "Saw");
 const timber = await userRepository.findByName("Timber", "Saw");
@@ -443,10 +439,6 @@ export class UserRepository {
 }
 ```
 然后你可以这样使用它：
-
-```typescript
-import { getCustomRepository } from "typeorm";
-import { UserRepository } from "./repository/UserRepository";
 
 const userRepository = getCustomRepository(UserRepository); // 或者 connection.getCustomRepository 或者 manager.getCustomRepository()
 await userRepository.createAndSave("Timber", "Saw");

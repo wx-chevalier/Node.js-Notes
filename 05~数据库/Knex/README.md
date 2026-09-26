@@ -108,17 +108,6 @@ TextRow { 'VERSION()': '5.7.22-0ubuntu0.16.04.1' }
 
 `create_table.js`
 
-```js
-const options = {
-  client: "mysql2",
-  connection: {
-    host: "127.0.0.1",
-    user: "user12",
-    password: "s$cret",
-    database: "mydb"
-  }
-};
-
 const knex = require("knex")(options);
 
 knex.schema
@@ -143,17 +132,6 @@ knex.schema
 接下来，我们将向创建的表中插入一些数据。
 
 `insert_cars.js`
-
-```js
-const options = {
-  client: "mysql2",
-  connection: {
-    host: "127.0.0.1",
-    user: "user12",
-    password: "s$cret",
-    database: "mydb"
-  }
-};
 
 const knex = require("knex")(options);
 
@@ -186,17 +164,6 @@ knex("cars")
 在下面的示例中，我们从`cars`表中选择所有行。
 
 `select_cars.js`
-
-```js
-const options = {
-  client: "mysql2",
-  connection: {
-    host: "127.0.0.1",
-    user: "user12",
-    password: "s$cret",
-    database: "mydb"
-  }
-};
 
 const knex = require("knex")(options);
 
@@ -295,17 +262,6 @@ Bentley 350000
 我们可以使用`orderBy()`功能订购数据。
 
 `order_cars.js`
-
-```js
-const options = {
-  client: "mysql2",
-  connection: {
-    host: "127.0.0.1",
-    user: "user12",
-    password: "s$cret",
-    database: "mydb"
-  }
-};
 
 const knex = require("knex")(options);
 
